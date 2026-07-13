@@ -1,0 +1,33 @@
+import { Student } from '../types';
+
+export const defaultStudents: Student[] = [
+  { id: "INSTRUCTOR", name: "Garcia M, Victor", gradeBasis: "Graded", units: "4.00", plan: "Faculty / Course Coordinator", level: "Instructor" },
+  { id: "1125859", name: "Cantu, Crystal Michelle", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Sophomore" },
+  { id: "0892156", name: "Chapa, Emma S", gradeBasis: "Graded", units: "4.00", plan: "Non-Degree Seeking (Non-FA) - Non-Degree Seeking Casual", level: "Junior" },
+  { id: "7605992", name: "Escobar, Cindy Katherine", gradeBasis: "Graded", units: "4.00", plan: "Non-Degree Seeking (Non-FA) - Non-Degree Seeking Casual", level: "Junior" },
+  { id: "8015791", name: "Farrior, Marcella Farrior", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
+  { id: "7828761", name: "Greene, Kyla Michelle", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
+  { id: "7095101", name: "Huynh, Thien Kim", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Arts (AA)", level: "Senior" },
+  { id: "8053576", name: "Ihalamullage, Memory Nicola", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Biology", level: "Freshman" },
+  { id: "7791440", name: "Loving Edmonds, Dominique R", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
+  { id: "7344213", name: "Manriquez, Alexandra Lizzette", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Health Information Tech (AAS)", level: "Sophomore" },
+  { id: "8098167", name: "Mccalla Miller, Shanique A", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
+  { id: "7806838", name: "Mocardell, Alycia", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Health Information Tech (AAS)", level: "Senior" },
+  { id: "7814022", name: "Montante, Paola", gradeBasis: "Graded", units: "4.00", plan: "Non-Degree Seeking (Non-FA) - Non-Degree Seeking Casual", level: "Junior" },
+  { id: "8030590", name: "Morales, Belinda", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
+  { id: "8036040", name: "Moran, Taylor Nicole", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
+  { id: "7801326", name: "Mosby, Zion Symone", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
+  { id: "7789174", name: "Ortiz, Caroll", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
+  { id: "7378576", name: "Ramirez, Karen Paulina", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Sophomore" },
+  { id: "7962164", name: "Roque, Yetzi D", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Sophomore" },
+  { id: "7711656", name: "Ruiz, Samara Naylu", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Junior" },
+  { id: "8129463", name: "Samo Ekoudi, Hilary Friedzanne", gradeBasis: "Graded", units: "4.00", plan: "Non-Degree Seeking (Non-FA) - Non-Degree Seeking Visiting", level: "Junior" },
+  { id: "7942755", name: "Schaefer, Abbie Lamar", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Junior" },
+  { id: "7898562", name: "Schramm, Kennedy", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Arts (AA)", level: "Sophomore" },
+  { id: "8028047", name: "Tadeo, Rihanna", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
+  { id: "7826873", name: "Terry, Audrey Rae", gradeBasis: "Graded", units: "4.00", plan: "Non-Degree Seeking (Non-FA) - Non-Degree Seeking Casual", level: "Sophomore" },
+  { id: "7620694", name: "Tran, Jason C.", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Arts (AA)", level: "Sophomore" },
+  { id: "8112113", name: "Vuittonet, Marissa Celina", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Junior" },
+  { id: "7147321", name: "Willis, Daija", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Junior" },
+  { id: "7231238", name: "Wray, Shanice Symone", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" }
+];
