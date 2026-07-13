@@ -10,6 +10,7 @@ import { hapsOutcomes } from './data/outcomes';
 
 // Subcomponents
 import Hero from './components/Hero';
+import IntroVideo from './components/IntroVideo';
 import ExplanationVideo from './components/ExplanationVideo';
 import RosterMatrix from './components/RosterMatrix';
 import SubmittedNotebooks from './components/SubmittedNotebooks';
@@ -193,6 +194,9 @@ export default function App() {
 
       {/* Strict Style specifications from style_structure.md */}
       <Hero />
+
+      {/* App Introduction Video */}
+      <IntroVideo />
 
       {/* Professor's Guide & Audio Overview Video */}
       <ExplanationVideo />
