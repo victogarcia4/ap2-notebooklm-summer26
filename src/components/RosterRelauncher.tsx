@@ -1,11 +1,6 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState, useRef } from 'react';
 import { Student } from '../types';
-import { UploadCloud, FileText, Sparkles, RefreshCw } from 'lucide-react';
+import { UploadCloud, FileText, Sparkles, RefreshCw, Info } from 'lucide-react';
 
 interface RosterRelauncherProps {
   onImportRoster: (students: Student[]) => void;
@@ -109,18 +104,20 @@ export default function RosterRelauncher({ onImportRoster, onResetDefault }: Ros
       };
       reader.readAsText(file);
     } else {
-      alert("For security and performance, copy-pasting the text is recommended for PDF files, while .csv and .txt can be uploaded directly!");
+      alert("For security and student privacy, copy-pasting the text is recommended for PDF rosters, while standard .csv or .txt grade rosters can be uploaded directly!");
     }
   };
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h2 className="text-2xl font-serif text-gray-950 flex items-center gap-2">
-          <RefreshCw className="w-6 h-6 text-teal-700 animate-spin-slow" />
+    <div className="space-y-8 text-[#1E293B]">
+      
+      {/* Title block */}
+      <div className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 shadow-[6px_6px_0px_0px_#1E293B]">
+        <h2 className="text-2xl sm:text-3xl font-display font-black text-[#1E293B] flex items-center gap-2">
+          <RefreshCw className="w-6 h-6 text-[#8B5CF6]" />
           <span>Roster Relauncher &amp; Data Modeler</span>
         </h2>
-        <p className="text-gray-600 text-sm mt-1">
+        <p className="text-[#64748B] text-sm font-bold mt-2 leading-relaxed">
           Need to run this assignment portal for a different class section or load a fresh roster? This browser engine includes full client-side parsing. No data is ever transmitted to a remote server, fully respecting student privacy.
         </p>
       </div>
@@ -131,18 +128,18 @@ export default function RosterRelauncher({ onImportRoster, onResetDefault }: Ros
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onClick={() => fileInputRef.current?.click()}
-        className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${
+        className={`border-4 border-dashed rounded-2xl p-10 text-center cursor-pointer transition-all duration-300 relative select-none ${
           isDragOver
-            ? 'border-teal-600 bg-teal-50/30'
-            : 'border-gray-300 hover:border-teal-500 bg-white/50'
+            ? 'border-[#8B5CF6] bg-[#8B5CF6]/10 translate-y-[-2px] shadow-[6px_6px_0px_0px_#1E293B]'
+            : 'border-[#1E293B] hover:border-[#8B5CF6] bg-white hover:bg-[#FFFDF5] shadow-[6px_6px_0px_0px_#1E293B] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_#1E293B]'
         }`}
       >
-        <UploadCloud className="w-12 h-12 mx-auto text-teal-600 mb-4" />
-        <p className="text-sm font-semibold text-gray-800">
-          Drag &amp; Drop your Class Roster <strong>.CSV</strong> or <strong>.TXT</strong> here
+        <UploadCloud className="w-14 h-14 mx-auto text-[#8B5CF6] mb-4 stroke-[2.5px] hover:scale-110 transition-transform" />
+        <p className="text-base font-display font-black text-[#1E293B]">
+          Drag &amp; Drop your Class Roster <strong className="bg-[#F472B6] text-white px-2 py-0.5 inline-block border-2 border-[#1E293B] font-mono rounded">.CSV</strong> or <strong className="bg-[#FBBF24] text-[#1E293B] px-2 py-0.5 inline-block border-2 border-[#1E293B] font-mono rounded">.TXT</strong> here
         </p>
-        <p className="text-xs text-gray-400 mt-1">
-          Or click to browse files from your computer
+        <p className="text-xs text-[#64748B] mt-2.5 font-display uppercase tracking-widest font-black">
+          Or click to browse files from your local system
         </p>
         <input
           type="file"
@@ -154,23 +151,23 @@ export default function RosterRelauncher({ onImportRoster, onResetDefault }: Ros
       </div>
 
       {/* Quick Paste Area */}
-      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-100 pb-3">
-          <h3 className="text-base font-serif font-bold text-gray-900 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-teal-600" />
+      <div className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 shadow-[6px_6px_0px_0px_#1E293B] space-y-4 relative">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-4 border-[#1E293B] pb-4">
+          <h3 className="text-base font-display font-black text-[#1E293B] flex items-center gap-2">
+            <FileText className="w-5 h-5 text-[#8B5CF6]" />
             <span>Alternative: Quick-Paste Roster Text</span>
           </h3>
 
           <button
             onClick={onResetDefault}
-            className="text-xs font-semibold text-teal-700 hover:text-teal-900 bg-teal-50 px-3 py-1.5 rounded transition-colors self-start sm:self-auto cursor-pointer"
+            className="text-xs font-display font-black uppercase tracking-wider text-[#1E293B] bg-[#FBBF24] border-2 border-[#1E293B] px-4 py-2 rounded-xl hover:translate-y-[-1px] active:translate-y-[1px] transition-all cursor-pointer pop-shadow-sm shrink-0"
           >
-            Reset Default Class Roster (28 Enrolled)
+            Reset Original Class Roster (28 Enrolled)
           </button>
         </div>
 
-        <p className="text-xs text-gray-500 leading-normal">
-          Copy rows from your LSC/Canvas gradebook roster directly, paste below, and hit Parse. Expected pattern: <code className="font-mono bg-gray-50 px-1 border border-gray-100">[ID] [Tab/Space] [Last Name, First Name] [Tab/Space] [Level]</code>
+        <p className="text-xs text-[#64748B] font-bold leading-normal">
+          Copy rows from your Canvas gradebook roster directly, paste below, and hit Parse. Expected pattern: <code className="font-mono bg-gray-100 px-1.5 py-0.5 border border-gray-300 rounded text-[#8B5CF6] font-bold">[ID] [Tab/Space] [Last Name, First Name] [Tab/Space] [Level]</code>
         </p>
 
         <textarea
@@ -178,17 +175,18 @@ export default function RosterRelauncher({ onImportRoster, onResetDefault }: Ros
           value={pasteArea}
           onChange={(e) => setPasteArea(e.target.value)}
           placeholder="Example format:&#10;1125859  Cantu, Crystal Michelle  Sophomore&#10;0892156  Chapa, Emma S  Junior"
-          className="w-full border border-gray-300 rounded p-3 text-xs font-mono outline-none focus:border-teal-500 text-gray-800 bg-gray-50/50"
+          className="w-full border-2 border-[#1E293B] rounded-xl p-3.5 text-xs font-mono font-semibold outline-none focus:ring-2 focus:ring-[#8B5CF6] text-[#1E293B] bg-[#FFFDF5]"
         />
 
         <button
           onClick={() => parseRosterText(pasteArea)}
-          className="inline-flex items-center gap-1.5 bg-teal-700 hover:bg-teal-800 text-white font-medium text-xs px-5 py-2.5 rounded-lg shadow transition-colors cursor-pointer"
+          className="candy-button inline-flex items-center gap-2 text-xs px-6 py-3 uppercase cursor-pointer"
         >
-          <Sparkles className="w-4 h-4 text-green-300" />
+          <Sparkles className="w-4.5 h-4.5 text-white fill-white stroke-[2.5px]" />
           <span>Parse &amp; Inject Roster</span>
         </button>
       </div>
+
     </div>
   );
 }

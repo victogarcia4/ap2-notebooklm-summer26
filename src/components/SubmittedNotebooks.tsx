@@ -1,11 +1,6 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState, useEffect } from 'react';
 import { SubmittedNotebook } from '../types';
-import { BookOpen, ExternalLink, Plus, Search, User, Award, CheckCircle, Info } from 'lucide-react';
+import { BookOpen, ExternalLink, Plus, Search, User, Award, CheckCircle, Info, Sparkles, X } from 'lucide-react';
 
 const SEED_NOTEBOOKS: SubmittedNotebook[] = [
   {
@@ -125,60 +120,69 @@ export default function SubmittedNotebooks() {
   });
 
   return (
-    <section className="bg-gray-50 py-16" id="notebooks-delivery-section">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-transparent py-6 text-[#1E293B]" id="notebooks-delivery-section">
+      <div className="max-w-7xl mx-auto">
         
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        {/* Header (Pop Card box) */}
+        <div className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0px_0px_#1E293B] mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
-            <div className="flex items-center gap-2 text-teal-600 font-semibold text-xs tracking-widest uppercase mb-2">
-              <BookOpen className="w-4 h-4" />
-              <span>DELIVERED INTELLECTUAL ASSETS</span>
+            <div className="flex items-center gap-2 text-[#8B5CF6] font-display text-xs uppercase tracking-wider font-extrabold mb-1">
+              <BookOpen className="w-4 h-4 text-[#8B5CF6]" />
+              <span>Volume II &bull; Delivered Intellectual Assets</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif text-gray-900 leading-tight">
-              Class Notebook LM Repository
+            <h2 className="text-3xl sm:text-4xl font-display font-black text-[#1E293B] leading-none">
+              Class NotebookLM Repository
             </h2>
-            <p className="text-gray-600 text-sm mt-2 max-w-xl">
-              Access the master Google Notebook LM study environments developed by Dr. Garcia Martinez 
-              and peer researchers. Link your own live Notebook below to complement the hub!
+            <p className="text-[#64748B] text-sm mt-2 max-w-xl font-medium leading-relaxed">
+              Access the master Google NotebookLM study environments developed by Dr. Garcia Martinez 
+              and peer researchers. Link your own live Notebook below to complement the study hub!
             </p>
           </div>
 
           <button
             onClick={() => setIsFormOpen(!isFormOpen)}
-            className="inline-flex items-center gap-2 bg-teal-700 hover:bg-teal-800 text-white font-medium text-sm px-5 py-3 rounded-lg shadow-md transition-all self-start md:self-end"
+            className="candy-button inline-flex items-center gap-2 text-xs py-3.5 px-6 cursor-pointer uppercase self-start md:self-center shrink-0"
           >
-            <Plus className="w-4 h-4" />
-            <span>Submit New Notebook Link</span>
+            <Plus className="w-4.5 h-4.5 text-white stroke-[3px]" />
+            <span>Submit Study Notebook</span>
           </button>
         </div>
 
-        {/* Success/Error Alerts */}
+        {/* Success Alert */}
         {successMsg && (
-          <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg mb-8 flex items-center gap-3">
-            <CheckCircle className="w-5 h-5 text-green-600" />
-            <span className="text-green-800 text-sm font-medium">{successMsg}</span>
+          <div className="bg-[#34D399] border-4 border-[#1E293B] p-4 rounded-2xl mb-8 flex items-center gap-3 shadow-[4px_4px_0px_0px_#1E293B] text-[#1E293B] font-bold">
+            <CheckCircle className="w-5 h-5 shrink-0" />
+            <span className="text-sm font-display">{successMsg}</span>
           </div>
         )}
 
         {/* Submission form drawer */}
         {isFormOpen && (
-          <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 shadow-lg mb-10 max-w-2xl mx-auto transition-all">
-            <h3 className="text-xl font-serif text-gray-900 mb-4 pb-3 border-b border-gray-100 flex items-center gap-2">
-              <Plus className="w-5 h-5 text-teal-600" />
-              <span>Deliver Your Notebook LM Link</span>
-            </h3>
+          <div className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 sm:p-8 shadow-[8px_8px_0px_0px_#8B5CF6] mb-10 max-w-2xl mx-auto relative">
+            <div className="flex items-center justify-between border-b-4 border-[#1E293B] pb-4 mb-6">
+              <h3 className="text-xl font-display font-black text-[#1E293B] flex items-center gap-2">
+                <Plus className="w-5 h-5 text-[#F472B6]" />
+                <span>Deliver Your NotebookLM Link</span>
+              </h3>
+              <button
+                type="button"
+                onClick={() => setIsFormOpen(false)}
+                className="w-8 h-8 rounded-full border-2 border-[#1E293B] hover:bg-gray-100 flex items-center justify-center text-[#1E293B] cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
 
             {errorMsg && (
-              <p className="bg-red-50 text-red-700 text-xs font-semibold p-3 rounded mb-4">
+              <p className="bg-[#F472B6]/15 border-2 border-[#F472B6] text-[#1E293B] text-xs font-bold p-3.5 rounded-xl mb-4">
                 {errorMsg}
               </p>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-5 text-sm">
+            <form onSubmit={handleSubmit} className="space-y-5 text-sm font-semibold">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-1">
+                  <label className="block text-[#1E293B] font-display text-xs uppercase tracking-wider mb-1.5 font-extrabold">
                     Your Name *
                   </label>
                   <input
@@ -186,28 +190,28 @@ export default function SubmittedNotebooks() {
                     required
                     value={author}
                     onChange={(e) => setAuthor(e.target.value)}
-                    placeholder="e.g. Dr. Victor Garcia Martinez"
-                    className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal-500 outline-none text-gray-800"
+                    placeholder="e.g. Victor Garcia Martinez"
+                    className="w-full px-3 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm font-medium"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-1">
+                  <label className="block text-[#1E293B] font-display text-xs uppercase tracking-wider mb-1.5 font-extrabold">
                     Your Academic Role *
                   </label>
                   <select
                     value={role}
                     onChange={(e) => setRole(e.target.value as 'student' | 'instructor')}
-                    className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal-500 outline-none bg-white text-gray-800"
+                    className="w-full px-3 py-3 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm cursor-pointer font-bold"
                   >
-                    <option value="student">Student / Student Researcher</option>
+                    <option value="student">Student / Peer Researcher</option>
                     <option value="instructor">Instructor / Faculty</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-gray-700 font-semibold mb-1">
-                  Google Notebook LM URL *
+                <label className="block text-[#1E293B] font-display text-xs uppercase tracking-wider mb-1.5 font-extrabold">
+                  Google NotebookLM URL *
                 </label>
                 <input
                   type="text"
@@ -215,12 +219,12 @@ export default function SubmittedNotebooks() {
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="https://notebooklm.google.com/notebook/..."
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal-500 outline-none text-gray-800"
+                  className="w-full px-3 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700 font-semibold mb-1">
+                <label className="block text-[#1E293B] font-display text-xs uppercase tracking-wider mb-1.5 font-extrabold">
                   Notebook Title *
                 </label>
                 <input
@@ -229,19 +233,19 @@ export default function SubmittedNotebooks() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="e.g. Notebook LM (Blood) - ABO & Rh Transfusion"
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal-500 outline-none text-gray-800"
+                  className="w-full px-3 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm font-medium"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-1">
+                  <label className="block text-[#1E293B] font-display text-xs uppercase tracking-wider mb-1.5 font-extrabold">
                     Lecture Exam Milestone *
                   </label>
                   <select
                     value={examId}
                     onChange={(e) => setExamId(e.target.value as any)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal-500 outline-none bg-white text-gray-800"
+                    className="w-full px-3 py-3 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm cursor-pointer font-bold"
                   >
                     <option value="exam1">Lecture Exam 1 (Ch 13, 14, 15)</option>
                     <option value="exam2">Lecture Exam 2 (Ch 16, 19)</option>
@@ -251,7 +255,7 @@ export default function SubmittedNotebooks() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-1">
+                  <label className="block text-[#1E293B] font-display text-xs uppercase tracking-wider mb-1.5 font-extrabold">
                     Core Subject / Topic *
                   </label>
                   <input
@@ -260,13 +264,13 @@ export default function SubmittedNotebooks() {
                     value={topic}
                     onChange={(e) => setTopic(e.target.value)}
                     placeholder="e.g. Blood Types or Adrenal Zones"
-                    className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal-500 outline-none text-gray-800"
+                    className="w-full px-3 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm font-medium"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-gray-700 font-semibold mb-1">
+                <label className="block text-[#1E293B] font-display text-xs uppercase tracking-wider mb-1.5 font-extrabold">
                   Description / Study Objective
                 </label>
                 <textarea
@@ -274,7 +278,7 @@ export default function SubmittedNotebooks() {
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Summarize what this Notebook covers or which specific learning outcomes it is configured to address..."
                   rows={3}
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-1 focus:ring-teal-500 outline-none text-gray-800"
+                  className="w-full px-3 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm font-medium"
                 />
               </div>
 
@@ -282,31 +286,31 @@ export default function SubmittedNotebooks() {
                 <button
                   type="button"
                   onClick={() => setIsFormOpen(false)}
-                  className="px-4 py-2 border border-gray-200 rounded hover:bg-gray-50 text-gray-600 font-medium"
+                  className="px-5 py-2.5 border-2 border-[#1E293B] rounded-xl bg-gray-100 hover:bg-gray-200 text-[#1E293B] font-display text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-teal-700 hover:bg-teal-800 text-white rounded font-medium shadow"
+                  className="candy-button px-6 py-2.5 text-xs uppercase cursor-pointer"
                 >
-                  Publish to Dashboard
+                  Publish to Repository
                 </button>
               </div>
             </form>
           </div>
         )}
 
-        {/* Filter bar */}
-        <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm mb-8 flex flex-wrap gap-4 items-center">
+        {/* Filter bar (Pop card box) */}
+        <div className="bg-white border-4 border-[#1E293B] rounded-2xl p-4 shadow-[4px_4px_0px_0px_#1E293B] mb-8 flex flex-wrap gap-4 items-center">
           <div className="relative flex-1 min-w-[240px]">
-            <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
+            <Search className="absolute left-3.5 top-3.5 w-4.5 h-4.5 text-[#8B5CF6] stroke-[2.5px]" />
             <input
               type="text"
-              placeholder="Search notebooks, authors, topics..."
+              placeholder="Search notebooks, authors, anatomical topics..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg outline-none text-sm focus:border-teal-500 text-gray-800"
+              className="w-full pl-10 pr-4 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none text-sm focus:ring-2 focus:ring-[#8B5CF6] placeholder:italic placeholder:text-[#64748B] font-medium"
             />
           </div>
 
@@ -314,7 +318,7 @@ export default function SubmittedNotebooks() {
             <select
               value={filterExam}
               onChange={(e) => setFilterExam(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm bg-white outline-none focus:border-teal-500 text-gray-800"
+              className="px-3 py-2.5 border-2 border-[#1E293B] rounded-xl text-sm bg-white outline-none focus:ring-2 focus:ring-[#8B5CF6] text-[#1E293B] cursor-pointer font-bold"
             >
               <option value="all">All Milestones</option>
               <option value="exam1">Lecture Exam 1</option>
@@ -327,7 +331,7 @@ export default function SubmittedNotebooks() {
             <select
               value={filterRole}
               onChange={(e) => setFilterRole(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm bg-white outline-none focus:border-teal-500 text-gray-800"
+              className="px-3 py-2.5 border-2 border-[#1E293B] rounded-xl text-sm bg-white outline-none focus:ring-2 focus:ring-[#8B5CF6] text-[#1E293B] cursor-pointer font-bold"
             >
               <option value="all">All Roles</option>
               <option value="instructor">Instructors Only</option>
@@ -337,17 +341,17 @@ export default function SubmittedNotebooks() {
         </div>
 
         {/* Notebook Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredNotebooks.map((nb) => {
             const isInstructor = nb.role === 'instructor';
             return (
               <div
                 key={nb.id}
-                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 shadow-[4px_4px_0px_0px_#1E293B] hover:shadow-[8px_8px_0px_0px_#1E293B] hover:-translate-y-1 transition-all flex flex-col justify-between relative group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
-                    <span className="text-[10px] font-semibold uppercase px-2.5 py-1 rounded-full bg-teal-50 text-teal-700 tracking-wider">
+                    <span className="text-[10px] font-display font-black uppercase px-2.5 py-1 rounded-full border-2 border-[#1E293B] bg-[#FFFDF5] text-[#8B5CF6]">
                       {nb.examId === 'exam1' ? 'Exam 1 (Ch 13-15)' :
                        nb.examId === 'exam2' ? 'Exam 2 (Ch 16, 19)' :
                        nb.examId === 'exam3' ? 'Exam 3 (Ch 17-18)' :
@@ -355,37 +359,37 @@ export default function SubmittedNotebooks() {
                        'Exam 5 (Ch 22-24)'}
                     </span>
                     
-                    <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full ${
-                      isInstructor ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'
+                    <span className={`inline-flex items-center gap-1.5 text-[10px] font-display font-black uppercase px-2.5 py-1 rounded-full border-2 border-[#1E293B] ${
+                      isInstructor ? 'bg-[#F472B6] text-white' : 'bg-[#34D399] text-[#1E293B]'
                     }`}>
                       {isInstructor ? (
                         <>
-                          <Award className="w-3 h-3" />
-                          <span>Instructor</span>
+                          <Award className="w-3.5 h-3.5" />
+                          <span>Faculty</span>
                         </>
                       ) : (
                         <>
-                          <User className="w-3 h-3" />
-                          <span>Student</span>
+                          <User className="w-3.5 h-3.5" />
+                          <span>Scholar</span>
                         </>
                       )}
                     </span>
                   </div>
 
-                  <h4 className="text-lg font-serif font-normal text-gray-900 mb-2 leading-tight">
+                  <h4 className="text-lg font-display font-extrabold text-[#1E293B] mb-2 leading-snug">
                     {nb.title}
                   </h4>
 
-                  <p className="text-xs text-gray-500 mb-3 flex items-center gap-1">
-                    <span className="font-semibold text-gray-700">{nb.author}</span> &bull; <span>{nb.createdAt}</span>
+                  <p className="text-xs text-[#64748B] mb-4 flex items-center gap-1 font-bold">
+                    <span className="text-[#1E293B]">{nb.author}</span> &bull; <span>{nb.createdAt}</span>
                   </p>
 
-                  <div className="bg-gray-50 rounded p-3 mb-4 border border-gray-100 text-xs">
-                    <p className="font-semibold text-teal-800 uppercase tracking-wide text-[9px] mb-1">
-                      CORE SUBJECT / TOPIC:
+                  <div className="bg-[#FFFDF5] rounded-xl p-4 mb-5 border-2 border-[#1E293B] text-xs font-semibold">
+                    <p className="font-display text-[#8B5CF6] uppercase tracking-wide text-[9px] mb-1 font-black">
+                      Anatomical Objective:
                     </p>
-                    <p className="text-gray-800 font-medium mb-2">{nb.topic}</p>
-                    <p className="text-gray-600 leading-relaxed italic">
+                    <p className="text-[#1E293B] font-bold mb-2 text-sm">{nb.topic}</p>
+                    <p className="text-[#64748B] leading-relaxed italic">
                       "{nb.description}"
                     </p>
                   </div>
@@ -395,20 +399,20 @@ export default function SubmittedNotebooks() {
                   href={nb.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium text-xs py-2.5 px-4 rounded-lg transition-colors mt-2"
+                  className="w-full candy-button inline-flex items-center justify-center gap-2 text-xs py-3.5 px-4 uppercase cursor-pointer shrink-0"
                 >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  <span>Launch Google Notebook LM</span>
+                  <ExternalLink className="w-4 h-4 text-white stroke-[3px]" />
+                  <span>Launch NotebookLM</span>
                 </a>
               </div>
             );
           })}
 
           {filteredNotebooks.length === 0 && (
-            <div className="col-span-full bg-white border border-gray-200 rounded-xl p-12 text-center text-gray-500">
-              <Info className="w-12 h-12 mx-auto text-gray-400 mb-3" />
-              <p className="font-serif text-lg text-gray-800 mb-1">No Notebook LMs Found</p>
-              <p className="text-sm">Try relaxing your search terms or filters above.</p>
+            <div className="col-span-full bg-white border-4 border-[#1E293B] rounded-2xl p-16 text-center text-[#64748B] shadow-[4px_4px_0px_0px_#1E293B]">
+              <Info className="w-12 h-12 mx-auto text-[#8B5CF6] mb-3 opacity-60" />
+              <p className="font-display text-lg text-[#1E293B] font-black">No Academic Notebooks Found</p>
+              <p className="text-sm font-semibold mt-1">Try adjusting or relaxing your search parameters above.</p>
             </div>
           )}
         </div>

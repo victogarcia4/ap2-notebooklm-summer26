@@ -1,17 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-grotesk: "Anton", sans-serif;
-  --font-condiment: "Condiment", cursive;
-  --color-cream: #EFF4FF;
-  --color-neon: #6FFF00;
+  --font-display: "Outfit", sans-serif;
+  --font-serif-heading: "Outfit", sans-serif;
+  --font-serif-body: "Plus Jakarta Sans", sans-serif;
+  --font-grotesk: "Outfit", sans-serif;
+  --font-condiment: "Plus Jakarta Sans", sans-serif;
+
+  /* Playful Geometric Design Token Palette */
+  --color-background: #FFFDF5;
+  --color-foreground: #1E293B;
+  --color-muted: #F1F5F9;
+  --color-muted-foreground: #64748B;
+  --color-accent: #8B5CF6;
+  --color-accent-foreground: #FFFFFF;
+  --color-secondary: #F472B6;
+  --color-tertiary: #FBBF24;
+  --color-quaternary: #34D399;
+  --color-border: #1E293B; /* Slate 800 for chunky lines */
+  --color-input: #FFFFFF;
+  --color-card: #FFFFFF;
+  --color-ring: #8B5CF6;
+
+  /* Retained class-name fallback mappings for robust compilation */
+  --color-mahogany: #FFFDF5;
+  --color-aged-oak: #FFFFFF;
+  --color-parchment: #1E293B;
+  --color-worn-leather: #F8FAFC;
+  --color-faded-ink: #64748B;
+  --color-wood-grain: #CBD5E1;
+  --color-brass: #8B5CF6;
+  --color-brass-bright: #F472B6;
+  --color-brass-dark: #7C3AED;
+  --color-crimson: #F472B6;
 }
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900;
+    background-color: #FFFDF5;
+    color: #1E293B;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.625;
   }
 }
 
+/* Texture overlays - disabled/subtle under Playful system */
+.paper-texture {
+  display: none;
+}
+.vignette {
+  display: none;
+}
+
+/* Stable Grid with Dot Pattern Fill */
+.dot-grid {
+  background-color: #FFFDF5;
+  background-image: radial-gradient(#CBD5E1 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.dot-grid-subtle {
+  background-color: transparent;
+  background-image: radial-gradient(#E2E8F0 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* The "Pop" Hard Shadows (No blur, solid offset) */
+.pop-shadow-sm {
+  box-shadow: 2px 2px 0px 0px #1E293B;
+}
+
+.pop-shadow-md, .pop-shadow {
+  box-shadow: 4px 4px 0px 0px #1E293B;
+}
+
+.pop-shadow-lg {
+  box-shadow: 8px 8px 0px 0px #1E293B;
+}
+
+.pop-shadow-pink {
+  box-shadow: 8px 8px 0px 0px #F472B6;
+}
+
+.pop-shadow-violet {
+  box-shadow: 8px 8px 0px 0px #8B5CF6;
+}
+
+.pop-shadow-yellow {
+  box-shadow: 8px 8px 0px 0px #FBBF24;
+}
+
+.pop-shadow-mint {
+  box-shadow: 8px 8px 0px 0px #34D399;
+}
+
+/* Speech Bubble asymmetric corner */
+.speech-bubble {
+  border-radius: 16px 16px 16px 0px;
+}
+
+/* Leaf asymmetric corner */
+.leaf-shape {
+  border-radius: 24px 0px 24px 24px;
+}
+
+/* Bouncy Elastic Transitions */
+.bounce-transition {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Interactive Candy Button Base style */
+.candy-button {
+  background-color: #8B5CF6;
+  color: #FFFFFF;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  border: 2px solid #1E293B;
+  box-shadow: 4px 4px 0px 0px #1E293B;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.candy-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #1E293B;
+}
+.candy-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #1E293B;
+}
+
+.candy-button-pink {
+  background-color: #F472B6;
+}
+
+.candy-button-yellow {
+  background-color: #FBBF24;
+  color: #1E293B;
+}
+
+.candy-button-mint {
+  background-color: #34D399;
+  color: #1E293B;
+}
+
+.candy-button-outline {
+  background-color: transparent;
+  color: #1E293B;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  border: 2px solid #1E293B;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.candy-button-outline:hover {
+  background-color: #FBBF24;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px 0px #1E293B;
+}
+.candy-button-outline:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px #1E293B;
+}
+
+/* Wiggle animations on hover for icons */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(4deg); }
+  75% { transform: rotate(-4deg); }
+}
+.hover-wiggle:hover {
+  animation: wiggle 0.4s ease-in-out infinite;
+}
+
+/* Floating Animation for Geometric Accents */
+@keyframes float-shape-1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(8deg); }
+}
+
+@keyframes float-shape-2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-8deg); }
+}
+
+.animate-float-1 {
+  animation: float-shape-1 6s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-shape-2 8s ease-in-out infinite;
+}
+
+/* Retro infinite marquee ticker */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}

@@ -1,11 +1,6 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState, useEffect } from 'react';
 import { Student } from '../types';
-import { Sparkles, Copy, CheckCircle, Info } from 'lucide-react';
+import { Sparkles, Copy, CheckCircle, Info, GraduationCap, ArrowRight, Zap, RefreshCw } from 'lucide-react';
 
 interface NotebookLMGuideProps {
   students: Student[];
@@ -40,118 +35,127 @@ export default function NotebookLMGuide({ students, selectedStudentIdx }: Notebo
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-[#1E293B]">
+      
       {/* Step Guide List */}
-      <div className="lg:col-span-7 bg-white border border-gray-200 rounded-xl p-6 sm:p-8 shadow-sm space-y-8">
+      <div className="lg:col-span-7 bg-white border-4 border-[#1E293B] rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0px_0px_#1E293B] space-y-8 relative">
         
         {/* Step Guide Header */}
-        <div className="bg-teal-900 text-white rounded-xl p-6 text-center">
-          <h2 className="text-xl sm:text-2xl font-serif text-white tracking-tight flex items-center justify-center gap-2">
-            <span>🎧 Notebook LM Creator Guide</span>
+        <div className="bg-[#8B5CF6] text-white rounded-2xl p-6 text-center border-4 border-[#1E293B] shadow-[4px_4px_0px_0px_#1E293B] relative overflow-hidden rotate-[-0.5deg]">
+          <h2 className="text-xl sm:text-2xl font-display font-black tracking-wide uppercase flex items-center justify-center gap-2">
+            <span>NotebookLM Creator Guide</span>
           </h2>
-          <p className="text-xs text-teal-200 uppercase tracking-widest font-semibold mt-1">
-            Turn Learning Outcomes into Multimedia Tools
+          <p className="text-xs text-[#FBBF24] uppercase tracking-widest font-extrabold mt-1">
+            Turn Learning Outcomes into Interactive Assets
           </p>
         </div>
 
-        {/* Intro */}
-        <p className="text-gray-600 text-sm leading-relaxed text-center italic">
-          "Hello everyone! Ready to build your own <strong>Notebook LM tools</strong>? Follow this roadmap to create and submit your project successfully. 🚀"
-        </p>
+        {/* Intro speech bubble */}
+        <div className="bg-[#F1F5F9] border-2 border-[#1E293B] p-4 rounded-2xl relative speech-bubble">
+          <p className="text-[#1E293B] text-sm leading-relaxed font-semibold italic">
+            "Hello everyone! Ready to build your own <strong className="text-[#8B5CF6]">NotebookLM tools</strong>? Follow this roadmap to create and submit your project successfully. Let's make learning dynamic! 🎧"
+          </p>
+        </div>
 
         {/* Phase 1 */}
-        <div className="border border-teal-100 bg-teal-50/20 p-5 rounded-lg space-y-3">
-          <h3 className="text-teal-900 font-serif text-lg flex items-center gap-2">
-            <span className="bg-teal-900 text-white text-xs font-bold rounded-full w-5 h-5 inline-flex items-center justify-center">1</span>
-            <span>Phase 1: The Setup (Step-by-Step)</span>
+        <div className="border-4 border-[#1E293B] bg-[#FFFDF5] p-5 rounded-2xl space-y-3 shadow-[4px_4px_0px_0px_#1E293B] hover:translate-y-[-1px] transition-transform">
+          <h3 className="text-[#8B5CF6] font-display text-lg flex items-center gap-2 font-black">
+            <span className="bg-[#F472B6] text-white text-xs font-display font-black rounded-full w-6 h-6 inline-flex items-center justify-center border-2 border-[#1E293B]">1</span>
+            <span>Phase I: The Setup (Syllabus Allocation)</span>
           </h3>
-          <ul className="text-xs text-gray-700 space-y-2 list-disc pl-5 leading-relaxed">
+          <ul className="text-xs text-[#1E293B] font-semibold space-y-2 list-disc pl-5 leading-relaxed">
             <li>
-              <strong>Find Your LO:</strong> Locate your assigned Learning Outcome (1, 2, 3, or 4) for the active exam category.
+              <strong className="text-[#8B5CF6] font-display text-[10px] uppercase tracking-wide">Find Your LO:</strong> Locate your assigned HAPS Learning Outcome for the active exam category using the Planner Deck.
             </li>
             <li>
-              <strong>Rename:</strong> Create a new Notebook LM and rename it with your specific LO. Just copy and paste it!
+              <strong className="text-[#8B5CF6] font-display text-[10px] uppercase tracking-wide">Rename Workspace:</strong> Create a new NotebookLM and rename it with your specific LO code. Just copy and paste it!
             </li>
           </ul>
         </div>
 
         {/* Phase 2 */}
-        <div className="border border-teal-100 bg-teal-50/20 p-5 rounded-lg space-y-3">
-          <h3 className="text-teal-900 font-serif text-lg flex items-center gap-2">
-            <span className="bg-teal-900 text-white text-xs font-bold rounded-full w-5 h-5 inline-flex items-center justify-center">2</span>
-            <span>Phase 2: Add Sources &amp; Script</span>
+        <div className="border-4 border-[#1E293B] bg-[#FFFDF5] p-5 rounded-2xl space-y-3 shadow-[4px_4px_0px_0px_#1E293B] hover:translate-y-[-1px] transition-transform">
+          <h3 className="text-[#8B5CF6] font-display text-lg flex items-center gap-2 font-black">
+            <span className="bg-[#FBBF24] text-[#1E293B] text-xs font-display font-black rounded-full w-6 h-6 inline-flex items-center justify-center border-2 border-[#1E293B]">2</span>
+            <span>Phase II: Add Sources &amp; Custom Scripts</span>
           </h3>
-          <p className="text-xs font-semibold text-gray-800">
-            Steps 3 &amp; 4: Upload Materials
-          </p>
-          <ul className="text-xs text-gray-700 space-y-1 list-disc pl-5 leading-relaxed mb-2">
-            <li>Upload files from "BIOL material" that match your specific LO.</li>
-            <li>Add 2-3 public YouTube links (e.g., Khan Academy, Amoeba Sisters, or Crash Course).</li>
-          </ul>
+          
+          <div className="border-l-4 border-[#F472B6] pl-3 py-1 space-y-1.5">
+            <p className="text-xs font-display font-black text-[#F472B6] uppercase tracking-wider text-[10px]">
+              Steps 3 &amp; 4: Upload Course Materials
+            </p>
+            <ul className="text-xs text-[#1E293B] font-semibold space-y-1 list-disc pl-5 leading-relaxed">
+              <li>Upload relevant files from your study material that match your specific LO.</li>
+              <li>Add 2-3 public study links (e.g., peer reviews, Khan Academy, or Crash Course).</li>
+            </ul>
+          </div>
 
-          <p className="text-xs font-semibold text-gray-800 pt-1">
-            Steps 5 &amp; 6: Customize AI Prompts ✍️
-          </p>
-          <p className="text-xs text-gray-700 leading-relaxed mb-2">
-            Copy and paste this base template into Notebook LM for each tool (presentation, flashcards, video, audio, infographic):
-          </p>
-          <div className="bg-white border border-dashed border-teal-700 p-4 rounded text-xs text-rose-700 font-mono italic">
-            "Using the selected sources, generate a(n) [presentation, flashcards, video, audio, infographic] of this specific learning outcome: [---paste your LO here---]"
+          <div className="border-l-4 border-[#34D399] pl-3 py-1 space-y-1.5">
+            <p className="text-xs font-display font-black text-[#34D399] uppercase tracking-wider text-[10px]">
+              Steps 5 &amp; 6: Customize AI Prompts ✍️
+            </p>
+            <p className="text-xs text-[#64748B] leading-relaxed font-semibold">
+              Copy and paste this base template into NotebookLM for each tool (presentation, flashcards, video, audio, infographic):
+            </p>
+            <div className="bg-white border-2 border-[#1E293B] p-4 rounded-xl text-xs text-[#8B5CF6] font-mono italic font-bold">
+              "Using the selected sources, generate a(n) [presentation, flashcards, video, audio, infographic] of this specific learning outcome: [---paste your LO here---]"
+            </div>
           </div>
         </div>
 
         {/* Phase 3 */}
-        <div className="border border-red-100 bg-red-50/20 p-5 rounded-lg space-y-3">
-          <h3 className="text-red-900 font-serif text-lg flex items-center gap-2">
-            <span className="bg-red-950 text-white text-xs font-bold rounded-full w-5 h-5 inline-flex items-center justify-center">3</span>
-            <span>Phase 3: Generate &amp; Submit (Action Required)</span>
+        <div className="border-4 border-[#1E293B] bg-[#FFFDF5] p-5 rounded-2xl space-y-3 shadow-[4px_4px_0px_0px_#1E293B] hover:translate-y-[-1px] transition-transform">
+          <h3 className="text-[#8B5CF6] font-display text-lg flex items-center gap-2 font-black">
+            <span className="bg-[#34D399] text-[#1E293B] text-xs font-display font-black rounded-full w-6 h-6 inline-flex items-center justify-center border-2 border-[#1E293B]">3</span>
+            <span>Phase III: Generate &amp; Submit Asset</span>
           </h3>
-          <p className="text-xs text-gray-700 leading-relaxed">
-            <strong>Step 7:</strong> Select the "shorter version" to generate your items. Ensure content focuses strictly on your LO!
+          <p className="text-xs text-[#1E293B] font-semibold leading-relaxed">
+            <strong className="text-[#8B5CF6] font-display text-[10px] uppercase tracking-wide">Step 7:</strong> Select the "shorter version" to generate your items. Ensure content focuses strictly on your allocated HAPS learning outcome!
           </p>
 
           <div className="grid grid-cols-2 gap-4 pt-2">
-            <div className="bg-white border border-red-200 text-red-800 p-4 rounded-lg text-center font-bold text-xs space-y-1">
-              <p className="uppercase text-[9px] text-gray-400">Step 8</p>
-              <p className="font-serif font-normal text-sm text-red-950">🔗 Share Public Link</p>
-              <p className="font-normal text-[10px] text-gray-500 font-sans mt-1">Anyone with link</p>
+            <div className="bg-white border-2 border-[#1E293B] p-4 rounded-xl text-center space-y-1 pop-shadow-sm">
+              <p className="uppercase text-[9px] text-[#64748B] font-display tracking-widest font-black">Step 8</p>
+              <p className="font-display font-black text-sm text-[#8B5CF6]">🔗 Share Link</p>
+              <p className="font-bold text-[10px] text-[#64748B] mt-1">Anyone with link</p>
             </div>
-            <div className="bg-white border border-red-200 text-red-800 p-4 rounded-lg text-center font-bold text-xs space-y-1">
-              <p className="uppercase text-[9px] text-gray-400">Step 9</p>
-              <p className="font-serif font-normal text-sm text-red-950">📥 Upload to Dropbox</p>
-              <p className="font-normal text-[10px] text-gray-500 font-sans mt-1">Submit link for grade</p>
+            <div className="bg-white border-2 border-[#1E293B] p-4 rounded-xl text-center space-y-1 pop-shadow-sm">
+              <p className="uppercase text-[9px] text-[#64748B] font-display tracking-widest font-black">Step 9</p>
+              <p className="font-display font-black text-sm text-[#F472B6]">📥 Submit Link</p>
+              <p className="font-bold text-[10px] text-[#64748B] mt-1">Publish to repository</p>
             </div>
           </div>
         </div>
 
         {/* Closing Note */}
-        <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg text-center">
-          <p className="text-sm font-semibold text-teal-900 font-serif">
-            Keep Going! Thanks for your hard work on this creative project! ✨
+        <div className="bg-[#34D399]/25 border-4 border-dashed border-[#1E293B] p-4 rounded-2xl text-center">
+          <p className="text-sm font-display font-black text-[#1E293B] flex items-center justify-center gap-1.5">
+            <Sparkles className="w-4 h-4 text-[#8B5CF6] fill-[#8B5CF6]" />
+            <span>Rigorous dedication to anatomical research!</span>
           </p>
         </div>
 
       </div>
 
       {/* Interactive Prompt Builder Card */}
-      <div className="lg:col-span-5 bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-        <h3 className="text-xl font-serif text-gray-900 border-b border-gray-100 pb-3 flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-teal-600 animate-pulse" />
-          <span>Class Roster Prompt Builder</span>
+      <div className="lg:col-span-5 bg-white border-4 border-[#1E293B] rounded-2xl p-6 shadow-[6px_6px_0px_0px_#1E293B] space-y-5 relative">
+        <h3 className="font-display text-2xl text-[#1E293B] font-black border-b-4 border-[#1E293B] pb-3 flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-[#8B5CF6] animate-pulse" />
+          <span>Script Generator</span>
         </h3>
-        <p className="text-xs text-gray-500 leading-relaxed">
-          Select a student and desired deliverable format below. The utility will automatically locate the HAPS Learning Outcome mapped to that student and pre-generate your exact Notebook LM ready script.
+        <p className="text-xs text-[#64748B] font-bold leading-relaxed">
+          Select a scholar and milestone. The system automatically fetches their deterministic learning outcome and constructs the exact instruction script for Google NotebookLM.
         </p>
 
         {activeStudent ? (
           <div className="space-y-4">
             {/* Student Dropdown */}
-            <div className="flex flex-col gap-1 text-xs">
-              <label className="font-bold text-gray-700">Select Student:</label>
+            <div className="flex flex-col gap-1.5 text-xs font-bold">
+              <label className="text-[10px] font-display font-black text-[#8B5CF6] uppercase tracking-wider">Select Scholar:</label>
               <select
                 value={studentIndex}
                 onChange={(e) => setStudentIndex(parseInt(e.target.value))}
-                className="w-full px-3 py-2 border border-gray-300 rounded outline-none bg-white text-gray-800"
+                className="w-full px-3 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm cursor-pointer font-bold"
               >
                 {students.map((student, idx) => (
                   <option key={student.id} value={idx}>
@@ -162,12 +166,12 @@ export default function NotebookLMGuide({ students, selectedStudentIdx }: Notebo
             </div>
 
             {/* Exam category */}
-            <div className="flex flex-col gap-1 text-xs">
-              <label className="font-bold text-gray-700">Target Milestone / Exam:</label>
+            <div className="flex flex-col gap-1.5 text-xs font-bold">
+              <label className="text-[10px] font-display font-black text-[#8B5CF6] uppercase tracking-wider">Target Milestone / Exam:</label>
               <select
                 value={examKey}
                 onChange={(e) => setExamKey(e.target.value as any)}
-                className="w-full px-3 py-2 border border-gray-300 rounded outline-none bg-white text-gray-800"
+                className="w-full px-3 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm cursor-pointer font-bold"
               >
                 <option value="exam1">Lecture Exam 1 (Endocrine, Blood, Cardio)</option>
                 <option value="exam2">Lecture Exam 2 (Lymphatic, Respiratory)</option>
@@ -178,52 +182,54 @@ export default function NotebookLMGuide({ students, selectedStudentIdx }: Notebo
             </div>
 
             {/* Deliverable format */}
-            <div className="flex flex-col gap-1 text-xs">
-              <label className="font-bold text-gray-700">Notebook LM Deliverable Format:</label>
+            <div className="flex flex-col gap-1.5 text-xs font-bold">
+              <label className="text-[10px] font-display font-black text-[#8B5CF6] uppercase tracking-wider">NotebookLM Deliverable Format:</label>
               <select
                 value={format}
                 onChange={(e) => setFormat(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded outline-none bg-white text-gray-800"
+                className="w-full px-3 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm cursor-pointer font-bold"
               >
                 <option value="presentation">presentation</option>
                 <option value="flashcards">flashcards</option>
-                <option value="video">video summary</option>
+                <option value="video summary">video summary</option>
                 <option value="audio podcast">audio podcast</option>
                 <option value="infographic text">infographic blueprint</option>
               </select>
             </div>
 
             {/* Live Prompt display box */}
-            <div className="space-y-2 pt-4 border-t border-gray-100">
-              <p className="text-xs font-bold text-teal-900 uppercase tracking-wide">
-                YOUR CUSTOM GENERATED SCRIPT:
+            <div className="space-y-2.5 pt-4 border-t-2 border-[#1E293B]">
+              <p className="text-[10px] font-display font-black text-[#8B5CF6] uppercase tracking-wider">
+                AUTOMATIC STUDY PROMPT:
               </p>
-              <div className="relative bg-gray-900 text-teal-100 rounded-lg p-4 font-mono text-xs break-words leading-relaxed min-h-[120px] select-all">
+              
+              <div className="relative bg-[#FFFDF5] text-[#1E293B] border-2 border-[#1E293B] rounded-xl p-4 font-mono text-xs break-words leading-relaxed min-h-[140px] select-all shadow-[4px_4px_0px_0px_#1E293B]">
                 <button
                   onClick={handleCopy}
-                  className="absolute top-2 right-2 inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 text-white border border-white/10 rounded px-2.5 py-1 text-[10px] tracking-wide transition-colors cursor-pointer"
+                  className="absolute top-2 right-2 inline-flex items-center gap-1 bg-[#8B5CF6] text-white border-2 border-[#1E293B] rounded-xl px-3 py-1.5 text-[10px] font-display font-black uppercase tracking-wider hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_#1E293B] active:translate-y-[1px] transition-all cursor-pointer"
                 >
                   {copied ? (
                     <>
-                      <CheckCircle className="w-3.5 h-3.5 text-green-400" />
-                      <span>Copied!</span>
+                      <CheckCircle className="w-3.5 h-3.5 text-[#34D399]" />
+                      <span>Copied</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5" />
-                      <span>Copy Prompt</span>
+                      <span>Copy</span>
                     </>
                   )}
                 </button>
-                <span className="block pr-24 mt-2">
+                
+                <span className="block pr-16 mt-3 font-sans font-bold text-sm italic text-[#1E293B]">
                   {generatedPrompt}
                 </span>
               </div>
             </div>
           </div>
         ) : (
-          <div className="bg-gray-50 border border-gray-100 p-8 rounded-lg text-center text-gray-500 text-xs">
-            <Info className="w-8 h-8 text-gray-300 mx-auto mb-2" />
+          <div className="bg-gray-100 border-2 border-[#1E293B] p-8 rounded-xl text-center text-[#64748B] text-xs font-bold">
+            <Info className="w-8 h-8 text-[#8B5CF6] mx-auto mb-2 opacity-50" />
             <p>No roster students loaded to generate custom prompts.</p>
           </div>
         )}

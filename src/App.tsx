@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useState, useEffect } from 'react';
 import { Student, DistributionPolicy, AcademicSession } from './types';
 import { defaultStudents } from './data/students';
@@ -10,7 +5,8 @@ import { hapsOutcomes } from './data/outcomes';
 
 // Subcomponents
 import Hero from './components/Hero';
-import IntroVideo from './components/IntroVideo';
+import AboutSection from './components/AboutSection';
+import CaseStudiesSection from './components/CaseStudiesSection';
 import RosterMatrix from './components/RosterMatrix';
 import SubmittedNotebooks from './components/SubmittedNotebooks';
 import NotebookLMGuide from './components/NotebookLMGuide';
@@ -20,7 +16,7 @@ import RosterRelauncher from './components/RosterRelauncher';
 import LearningContractModal from './components/LearningContractModal';
 
 // Icons
-import { GraduationCap, Award, BookOpen, Layers, BarChart3, Database, RefreshCw, Calendar, Sparkles } from 'lucide-react';
+import { GraduationCap, BookOpen, Layers, BarChart3, Database, RefreshCw, Sparkles, UserCheck, Award, Smile } from 'lucide-react';
 
 export default function App() {
   const [students, setStudents] = useState<Student[]>([]);
@@ -29,6 +25,7 @@ export default function App() {
   const [selectedStudentIdx, setSelectedStudentIdx] = useState(0);
   const [isContractOpen, setIsContractOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
+  const [avatarSrc, setAvatarSrc] = useState("/VHGM traje azul.png");
   const [avatarError, setAvatarError] = useState(false);
 
   // Initialize students and randomize assignments on startup
@@ -181,35 +178,38 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBFAF6] font-sans text-gray-900 flex flex-col justify-between selection:bg-teal-700 selection:text-white relative">
+    <div className="min-h-screen bg-[#FFFDF5] font-sans text-[#1E293B] flex flex-col justify-between selection:bg-[#FBBF24] selection:text-[#1E293B] relative overflow-x-hidden dot-grid-subtle pb-12">
       
-      {/* Dynamic Toast Message */}
+      {/* Dynamic Toast Message (Pop visual banner) */}
       {toastMsg && (
-        <div className="fixed bottom-6 right-6 bg-teal-900 text-white font-medium text-sm px-5 py-3 rounded-lg shadow-xl z-50 flex items-center gap-2 border border-teal-800 animate-fade-in print:hidden">
-          <Sparkles className="w-4 h-4 text-green-400" />
+        <div className="fixed bottom-6 right-6 bg-[#FBBF24] text-[#1E293B] font-display font-black text-xs px-5 py-3 rounded-xl border-4 border-[#1E293B] shadow-[4px_4px_0px_0px_#1E293B] z-50 flex items-center gap-2 animate-fade-in print:hidden">
+          <Sparkles className="w-4 h-4 text-[#8B5CF6] fill-[#8B5CF6]" />
           <span>{toastMsg}</span>
         </div>
       )}
 
-      {/* Strict Style specifications from style_structure.md */}
+      {/* Hero Section */}
       <Hero />
 
-      {/* App Introduction Video */}
-      <IntroVideo />
+      {/* About Section */}
+      <AboutSection />
+
+      {/* Case Studies & Video Section */}
+      <CaseStudiesSection />
 
       {/* Main Interactive Planner Deck Dashboard */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full print:hidden">
+      <main id="zoom-explanation-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full print:hidden relative z-10">
         
         {/* Core Roster Header */}
-        <header className="border-b-2 border-double border-gray-200 pb-6 mb-8">
-          <div className="flex items-center gap-2 text-teal-700 font-bold text-xs tracking-widest uppercase mb-1.5">
-            <GraduationCap className="w-4 h-4 text-teal-600" />
+        <header className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0px_0px_#1E293B] mb-10 relative">
+          <div className="flex items-center gap-2 text-[#8B5CF6] font-display text-xs uppercase tracking-wider font-extrabold mb-2">
+            <GraduationCap className="w-5 h-5 text-[#8B5CF6]" />
             <span>Lone Star College System &bull; Human Anatomy &amp; Physiology</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-serif text-gray-950 font-normal leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-display font-black text-[#1E293B] leading-none">
             BIOL 2402 &mdash; Human Anatomy &amp; Physiology II
           </h1>
-          <p className="text-gray-600 text-sm sm:text-base italic mt-1 font-serif">
+          <p className="text-[#64748B] text-sm sm:text-base font-bold mt-2 italic">
             {session === 'su26' ? 'Summer Course Learning Outcome Distribution Portal • Prof. Victor Garcia Martinez' :
              session === 'fa26' ? 'Fall Semester 16-Week Dynamic Learning Map • Prof. Victor Garcia Martinez' :
              'Spring Semester Accelerated Learning Deck • Prof. Victor Garcia Martinez'}
@@ -217,52 +217,58 @@ export default function App() {
         </header>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col justify-between">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Enrolled Students</span>
-            <span className="text-3xl font-serif font-normal text-teal-800 mt-1">{students.length}</span>
-            <span className="text-xs text-gray-500 italic mt-2">BIOL 2402 {session.toUpperCase()}</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+          <div className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 shadow-[4px_4px_0px_0px_#1E293B] hover:shadow-[6px_6px_0px_0px_#8B5CF6] hover:translate-y-[-1px] transition-all flex flex-col justify-between">
+            <span className="text-[10px] font-display font-black text-[#64748B] uppercase tracking-wider">Enrolled Scholars</span>
+            <span className="text-3xl font-display font-black text-[#8B5CF6] mt-1">{students.length}</span>
+            <span className="text-xs text-[#64748B] font-bold mt-2">BIOL 2402 {session.toUpperCase()}</span>
           </div>
-          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col justify-between">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">HAPS Core Outcomes</span>
-            <span className="text-3xl font-serif font-normal text-teal-800 mt-1">61</span>
-            <span className="text-xs text-gray-500 italic mt-2">Mapped to Exams 1 - 5</span>
+          
+          <div className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 shadow-[4px_4px_0px_0px_#1E293B] hover:shadow-[6px_6px_0px_0px_#F472B6] hover:translate-y-[-1px] transition-all flex flex-col justify-between">
+            <span className="text-[10px] font-display font-black text-[#64748B] uppercase tracking-wider">HAPS Core Outcomes</span>
+            <span className="text-3xl font-display font-black text-[#F472B6] mt-1">61</span>
+            <span className="text-xs text-[#64748B] font-bold mt-2">Mapped to Exams 1 - 5</span>
           </div>
-          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col justify-between">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Total Assigned Outcomes</span>
-            <span className="text-3xl font-serif font-normal text-teal-800 mt-1">{students.length * 5}</span>
-            <span className="text-xs text-gray-500 italic mt-2">5 outcomes per student</span>
+
+          <div className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 shadow-[4px_4px_0px_0px_#1E293B] hover:shadow-[6px_6px_0px_0px_#FBBF24] hover:translate-y-[-1px] transition-all flex flex-col justify-between">
+            <span className="text-[10px] font-display font-black text-[#64748B] uppercase tracking-wider">Assigned Outcomes</span>
+            <span className="text-3xl font-display font-black text-[#FBBF24] mt-1">{students.length * 5}</span>
+            <span className="text-xs text-[#64748B] font-bold mt-2">5 outcomes per scholar</span>
           </div>
-          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col justify-between">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Distribution Balance</span>
-            <span className="text-3xl font-serif font-normal text-teal-800 mt-1">100%</span>
-            <span className="text-xs text-gray-500 italic mt-2">Perfect Balance Active</span>
+
+          <div className="bg-white border-4 border-[#1E293B] rounded-2xl p-6 shadow-[4px_4px_0px_0px_#1E293B] hover:shadow-[6px_6px_0px_0px_#34D399] hover:translate-y-[-1px] transition-all flex flex-col justify-between">
+            <span className="text-[10px] font-display font-black text-[#64748B] uppercase tracking-wider">Distribution Balance</span>
+            <span className="text-3xl font-display font-black text-[#34D399] mt-1">100%</span>
+            <span className="text-xs text-[#64748B] font-bold mt-2">Perfect Balance Active</span>
           </div>
         </div>
 
-        {/* Navigation Tabs */}
-        <nav className="flex flex-wrap gap-2 border-b border-gray-200 mb-8 text-sm">
+        {/* Navigation Tabs (Memphis styled navigation) */}
+        <nav className="flex flex-wrap gap-3 border-b-4 border-[#1E293B] pb-4 mb-8 text-sm">
           {[
             { id: 'matrix', label: 'Roster & Outcomes Matrix', icon: <Layers className="w-4 h-4" /> },
-            { id: 'notebooks', label: 'Notebook LM Repository', icon: <Database className="w-4 h-4" /> },
+            { id: 'notebooks', label: 'NotebookLM Repository', icon: <Database className="w-4 h-4" /> },
             { id: 'guide', label: 'NotebookLM Guide', icon: <BookOpen className="w-4 h-4" /> },
             { id: 'stats', label: 'Distribution & Stats', icon: <BarChart3 className="w-4 h-4" /> },
             { id: 'map', label: 'Syllabus Chapters', icon: <GraduationCap className="w-4 h-4" /> },
             { id: 'reloader', label: 'Core Roster Relauncher', icon: <RefreshCw className="w-4 h-4" /> }
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id as any)}
-              className={`inline-flex items-center gap-1.5 px-4 py-3 font-semibold border-b-2 transition-all cursor-pointer ${
-                activeTab === tab.id
-                  ? 'border-teal-700 text-teal-700 font-bold'
-                  : 'border-transparent text-gray-500 hover:text-teal-700'
-              }`}
-            >
-              {tab.icon}
-              <span>{tab.label}</span>
-            </button>
-          ))}
+          ].map(tab => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`inline-flex items-center gap-2 px-5 py-3.5 font-display text-xs uppercase tracking-wider font-black rounded-xl border-2 border-[#1E293B] transition-all duration-300 cursor-pointer ${
+                  isActive
+                    ? 'bg-[#8B5CF6] text-white shadow-[3px_3px_0px_0px_#1E293B] translate-y-[-2px]'
+                    : 'bg-white text-[#1E293B] hover:bg-[#FFFDF5] hover:shadow-[2px_2px_0px_0px_#1E293B] hover:translate-y-[-1px]'
+                }`}
+              >
+                <span className={isActive ? 'text-[#FBBF24]' : 'text-[#8B5CF6]'}>{tab.icon}</span>
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
         </nav>
 
         {/* Dynamic Tab Contents */}
@@ -388,7 +394,7 @@ export default function App() {
               </div>
               <div className="text-center">
                 <div className="border-b border-gray-400 h-10 mb-1 flex items-end justify-center">
-                  <span className="font-condiment text-xl text-teal-700 font-semibold leading-none">
+                  <span className="font-serif italic text-base text-teal-700 font-semibold leading-none">
                     Victor Garcia Martinez
                   </span>
                 </div>
@@ -399,35 +405,48 @@ export default function App() {
         ))}
       </div>
 
-      {/* Beautifully Crafted Footer */}
-      <footer className="mt-12 bg-white border-t border-gray-200 py-12 text-center text-xs text-gray-500 font-sans flex flex-col items-center gap-6 print:hidden">
-        <div className="flex flex-col sm:flex-row items-center gap-5 text-left bg-gray-50 border border-gray-200/60 p-6 rounded-xl shadow-xs max-w-xl w-full mx-4">
+      {/* Playful Geometric Footer Card */}
+      <footer className="mt-12 py-12 text-center text-xs text-[#64748B] flex flex-col items-center gap-6 print:hidden relative z-10 max-w-7xl mx-auto px-4 w-full">
+        <div className="flex flex-col md:flex-row items-center gap-6 text-left bg-white border-4 border-[#1E293B] p-6 rounded-2xl max-w-2xl w-full shadow-[6px_6px_0px_0px_#1E293B] hover:shadow-[8px_8px_0px_0px_#1E293B] hover:translate-y-[-1px] transition-all relative">
+          
+          {/* Avatar frame */}
           {!avatarError ? (
             <img
-              src="/VHGM traje azul.png"
-              onError={() => setAvatarError(true)}
+              src={avatarSrc}
+              onError={() => {
+                if (avatarSrc === "/VHGM traje azul.png") {
+                  setAvatarSrc("https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&h=300&q=80");
+                } else {
+                  setAvatarError(true);
+                }
+              }}
               alt="Dr. Victor Garcia Martinez"
               referrerPolicy="no-referrer"
-              className="w-20 h-20 rounded-full object-cover border-2 border-teal-700 shadow-md select-none shrink-0"
+              className="w-24 h-24 rounded-2xl object-cover border-4 border-[#1E293B] shadow-[3px_3px_0px_0px_#1E293B] shrink-0 hover:rotate-3 transition-transform duration-300"
             />
           ) : (
-            <div className="w-20 h-20 rounded-full bg-teal-800 text-teal-50 font-serif font-bold text-2xl flex items-center justify-center border-2 border-teal-700 shadow-md select-none shrink-0">
+            <div className="w-24 h-24 rounded-2xl bg-[#FBBF24] text-[#1E293B] font-display font-black text-2xl flex items-center justify-center border-4 border-[#1E293B] shadow-[3px_3px_0px_0px_#1E293B] shrink-0">
               VGM
             </div>
           )}
+
           <div>
-            <h4 className="font-serif text-lg font-bold text-gray-900 leading-tight">
+            <span className="bg-[#34D399] text-[#1E293B] text-[10px] font-display font-black uppercase tracking-wider px-2.5 py-0.5 border-2 border-[#1E293B] rounded-full mb-1.5 inline-block">
+              Course Director
+            </span>
+            <h4 className="font-display text-xl font-black text-[#1E293B] leading-none">
               Dr. Victor Garcia Martinez, MSN, FNP-C, RN
             </h4>
-            <p className="text-gray-500 text-xs mt-1 leading-normal font-sans">
+            <p className="text-[#64748B] text-xs mt-1.5 font-bold leading-normal">
               Nursing &amp; Biology Faculty &bull; Lone Star College System
             </p>
-            <p className="text-teal-700 font-semibold text-xs mt-2">
+            <p className="text-[#8B5CF6] font-display text-xs uppercase tracking-wider font-black mt-3 flex items-center gap-1.5">
+              <Smile className="w-4 h-4 text-[#F472B6] stroke-[2.5px]" />
               <a
                 href="https://48hours.live"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline tracking-wide"
+                className="hover:text-[#F472B6] hover:underline"
               >
                 Built by Dr. Victor Garcia Martinez @ 48hours.live
               </a>
@@ -435,8 +454,8 @@ export default function App() {
           </div>
         </div>
 
-        <p className="max-w-2xl px-6 leading-relaxed">
-          &copy; 2026 Professor Victor Garcia Martinez. Developed for Lone Star College A&amp;P Instruction. Utilizing 2019 HAPS Standard Learning Outcomes. Core configuration parsed from <span className="font-mono bg-gray-100 px-1 border border-gray-200 rounded">BIOL 2402 SU 26.pdf</span> and <span className="font-mono bg-gray-100 px-1 border border-gray-200 rounded">HAPS LEARNING OUTCOMES - HAPS L.O..csv</span>.
+        <p className="max-w-2xl px-6 leading-relaxed text-[#64748B] font-semibold text-[11px]">
+          &copy; 2026 Professor Victor Garcia Martinez. Developed for Lone Star College A&amp;P Instruction. Utilizing 2019 HAPS Standard Learning Outcomes. Core configuration parsed from <span className="font-mono bg-white px-1.5 py-0.5 border-2 border-[#1E293B] rounded text-[#8B5CF6] font-bold">BIOL 2402 SU 26.pdf</span> and <span className="font-mono bg-white px-1.5 py-0.5 border-2 border-[#1E293B] rounded text-[#8B5CF6] font-bold">HAPS LEARNING OUTCOMES - HAPS L.O..csv</span>.
         </p>
       </footer>
 
