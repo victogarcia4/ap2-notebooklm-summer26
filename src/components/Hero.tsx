@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Sparkles, ArrowDown, Activity, Sliders, Zap, Circle, Award, BookOpen } from 'lucide-react';
+import { Sparkles, ArrowDown, Activity, Sliders, Zap, Circle, Award, BookOpen, Video } from 'lucide-react';
 
 type PatternType = 'dots' | 'grid' | 'confetti' | 'blobs';
 
 export default function Hero() {
   const [activePattern, setActivePattern] = useState<PatternType>('dots');
   const [activeSticker, setActiveSticker] = useState<number>(0);
+  const [avatarSrc, setAvatarSrc] = useState("/VHGM traje azul.png");
+  const [avatarError, setAvatarError] = useState(false);
 
   const scrollToAbout = () => {
     const section = document.getElementById('about-section');
@@ -132,13 +134,24 @@ export default function Hero() {
             Accelerate your A&amp;P II concepts with mathematical precision. Convert official HAPS standardized learning outcomes into beautiful multimedia deliverables using customized Google Notebook LM triggers.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-2">
+            <button
+              onClick={() => {
+                const section = document.getElementById('video-guides-section');
+                if (section) section.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="candy-button bg-[#34D399] text-[#1E293B] border-2 border-[#1E293B] shadow-[4px_4px_0px_0px_#1E293B] inline-flex items-center justify-center gap-2 text-sm py-3.5 px-8 cursor-pointer uppercase tracking-wider hover:bg-[#10B981]"
+            >
+              <span>Watch App Intro</span>
+              <Video className="w-4 h-4 text-[#1E293B] fill-current" />
+            </button>
+
             <button
               onClick={() => {
                 const section = document.getElementById('zoom-explanation-section');
                 if (section) section.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="candy-button inline-flex items-center justify-center gap-2 text-sm py-3.5 px-8 cursor-pointer uppercase tracking-wider"
+              className="candy-button inline-flex items-center justify-center gap-2 text-sm py-3.5 px-8 cursor-pointer uppercase tracking-wider animate-pulse hover:animate-none"
             >
               <span>Explore Interactive Deck</span>
               <ArrowDown className="w-4 h-4 text-white" />
@@ -170,10 +183,26 @@ export default function Hero() {
           <div className="relative z-10 w-full max-w-[380px] h-[360px] flex items-center justify-center">
             
             {/* Sticker 1: Dr. Garcia Profile Sticker */}
-            <div className="absolute top-2 left-2 w-44 bg-white border-4 border-[#1E293B] p-4 rounded-2xl rotate-[-4deg] shadow-[4px_4px_0px_0px_#1E293B] hover:rotate-0 transition-transform duration-300">
-              <div className="w-12 h-12 rounded-full bg-[#34D399] border-2 border-[#1E293B] flex items-center justify-center text-lg font-bold mb-2">
-                👨‍⚕️
-              </div>
+            <div className="absolute top-2 left-2 w-44 bg-white border-4 border-[#1E293B] p-4 rounded-2xl rotate-[-4deg] shadow-[4px_4px_0px_0px_#1E293B] hover:rotate-0 transition-transform duration-300 flex flex-col items-center text-center">
+              {!avatarError ? (
+                <img
+                  src={avatarSrc}
+                  onError={() => {
+                    if (avatarSrc === "/VHGM traje azul.png") {
+                      setAvatarSrc("https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&h=300&q=80");
+                    } else {
+                      setAvatarError(true);
+                    }
+                  }}
+                  alt="Dr. Victor Garcia Martinez"
+                  referrerPolicy="no-referrer"
+                  className="w-14 h-14 rounded-full object-cover border-2 border-[#1E293B] shadow-[2px_2px_0px_0px_#1E293B] mb-2 hover:scale-105 transition-transform shrink-0"
+                />
+              ) : (
+                <div className="w-14 h-14 rounded-full bg-[#34D399] border-2 border-[#1E293B] flex items-center justify-center text-lg font-bold mb-2">
+                  👨‍⚕️
+                </div>
+              )}
               <p className="font-display font-extrabold text-xs text-[#1E293B]">Dr. Garcia Martinez</p>
               <p className="text-[10px] text-[#64748B] font-bold font-mono">Nursing &amp; Bio Faculty</p>
             </div>

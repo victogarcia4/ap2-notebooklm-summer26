@@ -29,10 +29,65 @@ export default function CaseStudiesSection() {
           </p>
         </div>
 
-        {/* Video Card Container - Centered */}
-        <div className="flex justify-center">
-          {/* Card 3: Zoom Cloud Explanation Recording - Playful Ticket Stub Style */}
-          <div className="bg-[#FBBF24] rounded-2xl overflow-hidden border-4 border-[#1E293B] shadow-[6px_6px_0px_0px_#1E293B] hover:shadow-[8px_8px_0px_0px_#1E293B] hover:-translate-y-1 transition-all flex flex-col w-full max-w-md text-[#1E293B] relative group">
+        {/* Video Card Container - Two-Column Grid on Larger Screens */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch max-w-5xl mx-auto">
+          
+          {/* Card 1: Embedded Introduction Video Player - Playful Memphis Card */}
+          <div className="bg-[#FFF] rounded-2xl overflow-hidden border-4 border-[#1E293B] shadow-[6px_6px_0px_0px_#1E293B] hover:shadow-[8px_8px_0px_0px_#1E293B] hover:-translate-y-1 transition-all flex flex-col w-full text-[#1E293B] relative group">
+            
+            {/* Header branding */}
+            <div className="bg-[#8B5CF6] text-white border-b-4 border-[#1E293B] px-6 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#34D399] animate-ping" />
+                <span className="font-display text-[10px] uppercase tracking-wider font-extrabold">
+                  Application Introduction
+                </span>
+              </div>
+              <span className="text-[10px] font-mono font-extrabold bg-[#1E293B] text-white border-2 border-[#1E293B] px-2 py-0.5 rounded-full">
+                Interactive Walkthrough
+              </span>
+            </div>
+
+            <div className="p-6 flex flex-col justify-between flex-1 space-y-6">
+              <div className="space-y-4">
+                <div className="aspect-video w-full rounded-xl overflow-hidden border-4 border-[#1E293B] shadow-[4px_4px_0px_0px_#1E293B] bg-slate-900 relative">
+                  <iframe
+                    src="https://docs.google.com/videos/d/1DzxOGAnVKs2LiPgcjIpST_XAeJq0QGyuehsYX1Pu2Tw/preview"
+                    className="absolute inset-0 w-full h-full"
+                    allow="autoplay; fullscreen"
+                    allowFullScreen
+                    title="BIOL 2402 Active Study Portal Walkthrough"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-display font-black text-[#1E293B] leading-tight">
+                    Portal <br />
+                    <span className="bg-[#34D399] px-2 py-0.5 inline-block border-2 border-[#1E293B] rotate-[1deg] mt-1 text-sm font-extrabold">Welcome Walkthrough</span>
+                  </h3>
+                  <p className="text-[#1E293B] text-xs font-semibold mt-3 leading-relaxed">
+                    Watch this comprehensive introduction to get oriented with the Active Mastery Learning Portal. Discover how to view your individualized HAPS outcomes, locate assigned syllabus chapters, and export your personal covenants.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t-2 border-dashed border-[#1E293B]">
+                <ul className="text-xs font-bold text-[#1E293B] space-y-2">
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#8B5CF6] border border-[#1E293B]" />
+                    <span>Explore your customized Exam SLOs</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#34D399] border border-[#1E293B]" />
+                    <span>Copy custom instructions for Google NotebookLM</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Zoom Cloud Explanation Recording - Playful Ticket Stub Style */}
+          <div className="bg-[#FBBF24] rounded-2xl overflow-hidden border-4 border-[#1E293B] shadow-[6px_6px_0px_0px_#1E293B] hover:shadow-[8px_8px_0px_0px_#1E293B] hover:-translate-y-1 transition-all flex flex-col w-full text-[#1E293B] relative group">
             
             {/* Header branding */}
             <div className="bg-white border-b-4 border-[#1E293B] px-6 py-4 flex items-center justify-between">
@@ -47,7 +102,7 @@ export default function CaseStudiesSection() {
               </span>
             </div>
 
-            <div className="p-6 flex flex-col justify-between flex-1">
+            <div className="p-6 flex flex-col justify-between flex-1 space-y-6">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-full bg-white border-2 border-[#1E293B] flex items-center justify-center text-[#1E293B] pop-shadow-sm">
                   <Video className="w-6 h-6 text-[#8B5CF6]" />
@@ -55,7 +110,7 @@ export default function CaseStudiesSection() {
                 <div>
                   <h3 className="text-2xl font-display font-black text-[#1E293B] leading-tight">
                     Dr. Garcia's <br />
-                    <span className="bg-[#34D399] px-2 py-0.5 inline-block border-2 border-[#1E293B] rotate-[-1deg] mt-1 text-xs sm:text-base font-extrabold">Recorded Explanation</span>
+                    <span className="bg-[#34D399] px-2 py-0.5 inline-block border-2 border-[#1E293B] rotate-[-1deg] mt-1 text-sm font-extrabold">Recorded Explanation</span>
                   </h3>
                   <p className="text-[#1E293B] text-xs font-semibold mt-3 leading-relaxed">
                     Watch the comprehensive syllabus walkthrough. This cloud lecture explains the design of HAPS learning contracts and active student presentation pipelines.
@@ -103,6 +158,7 @@ export default function CaseStudiesSection() {
               </div>
             </div>
           </div>
+
         </div>
 
       </div>
