@@ -11,7 +11,6 @@ import { hapsOutcomes } from './data/outcomes';
 // Subcomponents
 import Hero from './components/Hero';
 import IntroVideo from './components/IntroVideo';
-import ExplanationVideo from './components/ExplanationVideo';
 import RosterMatrix from './components/RosterMatrix';
 import SubmittedNotebooks from './components/SubmittedNotebooks';
 import NotebookLMGuide from './components/NotebookLMGuide';
@@ -197,9 +196,6 @@ export default function App() {
 
       {/* App Introduction Video */}
       <IntroVideo />
-
-      {/* Professor's Guide & Audio Overview Video */}
-      <ExplanationVideo />
 
       {/* Main Interactive Planner Deck Dashboard */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full print:hidden">

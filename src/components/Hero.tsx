@@ -11,7 +11,7 @@ export default function Hero() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-overlay"
+        className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-overlay"
       >
         <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_151551_992053d1-3d3e-4b8c-abac-45f22158f411.mp4" type="video/mp4" />
         <source src="Notebook LM activities Intro.mp4" type="video/mp4" />
