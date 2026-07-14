@@ -25,7 +25,7 @@ export default function App() {
   const [selectedStudentIdx, setSelectedStudentIdx] = useState(0);
   const [isContractOpen, setIsContractOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
-  const [avatarSrc, setAvatarSrc] = useState("/VHGM traje azul.png");
+  const [avatarSrc, setAvatarSrc] = useState("/vhgm-portrait.png");
   const [avatarError, setAvatarError] = useState(false);
 
   // Initialize students and randomize assignments on startup
@@ -414,7 +414,7 @@ export default function App() {
             <img
               src={avatarSrc}
               onError={() => {
-                if (avatarSrc === "/VHGM traje azul.png") {
+                if (avatarSrc === "/vhgm-portrait.png") {
                   setAvatarSrc("https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&h=300&q=80");
                 } else {
                   setAvatarError(true);
