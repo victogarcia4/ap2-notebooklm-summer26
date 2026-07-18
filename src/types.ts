@@ -13,7 +13,6 @@ export interface LearningOutcome {
 export interface Student {
   id: string;
   name: string;
-  email?: string;
   gradeBasis: string;
   units: string;
   plan: string;

@@ -66,9 +66,7 @@ export default function App() {
       const outcomes = hapsOutcomes[examKey] || [];
       studentList.forEach((student, index) => {
         if (outcomes.length > 0) {
-          student[examKey] = student.id === "7311968"
-            ? outcomes[0]
-            : outcomes[index % outcomes.length];
+          student[examKey] = outcomes[index % outcomes.length];
         }
       });
     });
