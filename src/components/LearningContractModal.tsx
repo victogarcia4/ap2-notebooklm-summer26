@@ -1,6 +1,7 @@
 import React from 'react';
 import { Student } from '../types';
 import { Printer, Copy, Headphones, X, Award, FileText, Check } from 'lucide-react';
+import GeminiNotebookName from './GeminiNotebookName';
 
 interface LearningContractModalProps {
   student: Student | null;
@@ -121,7 +122,7 @@ export default function LearningContractModal({
               className="inline-flex items-center gap-1.5 text-xs text-white bg-[#8B5CF6] border-2 border-[#1E293B] font-display font-black uppercase tracking-wider px-5 py-3 rounded-xl hover:translate-y-[-1px] active:translate-y-[1px] transition-all cursor-pointer pop-shadow-sm"
             >
               <Headphones className="w-4 h-4 text-white stroke-[3.5px]" />
-              <span>Generate NotebookLM Prompts</span>
+              <span>Generate <GeminiNotebookName /> Prompts</span>
             </button>
           </div>
 

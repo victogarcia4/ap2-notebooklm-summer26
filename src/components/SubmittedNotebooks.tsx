@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SubmittedNotebook } from '../types';
 import { BookOpen, ExternalLink, Plus, Search, User, Award, CheckCircle, Info, Sparkles, X } from 'lucide-react';
+import GeminiNotebookName from './GeminiNotebookName';
 
 const SEED_NOTEBOOKS: SubmittedNotebook[] = [
   {
@@ -33,6 +34,17 @@ export default function SubmittedNotebooks() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+
+  const renderNotebookTitle = (notebookTitle: string) => {
+    const titleParts = notebookTitle.split(/Notebook\s*LM/i);
+
+    return titleParts.map((part, index) => (
+      <React.Fragment key={`${part}-${index}`}>
+        {part}
+        {index < titleParts.length - 1 && <GeminiNotebookName />}
+      </React.Fragment>
+    ));
+  };
 
   // Load from LocalStorage or seed
   useEffect(() => {
@@ -99,7 +111,7 @@ export default function SubmittedNotebooks() {
     setTopic("");
     setDescription("");
     setIsFormOpen(false);
-    setSuccessMsg("Notebook LM link submitted and added to the class dashboard successfully!");
+    setSuccessMsg("Study link submitted and added to the class dashboard successfully!");
 
     setTimeout(() => {
       setSuccessMsg("");
@@ -131,10 +143,10 @@ export default function SubmittedNotebooks() {
               <span>Volume II &bull; Delivered Intellectual Assets</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-display font-black text-[#1E293B] leading-none">
-              Class NotebookLM Repository
+              Class <GeminiNotebookName /> Repository
             </h2>
             <p className="text-[#64748B] text-sm mt-2 max-w-xl font-medium leading-relaxed">
-              Access the master Google NotebookLM study environments developed by Dr. Garcia Martinez 
+              Access the master Google <GeminiNotebookName /> study environments developed by Dr. Garcia Martinez 
               and peer researchers. Link your own live Notebook below to complement the study hub!
             </p>
           </div>
@@ -162,7 +174,7 @@ export default function SubmittedNotebooks() {
             <div className="flex items-center justify-between border-b-4 border-[#1E293B] pb-4 mb-6">
               <h3 className="text-xl font-display font-black text-[#1E293B] flex items-center gap-2">
                 <Plus className="w-5 h-5 text-[#F472B6]" />
-                <span>Deliver Your NotebookLM Link</span>
+                <span>Deliver Your <GeminiNotebookName /> Link</span>
               </h3>
               <button
                 type="button"
@@ -211,7 +223,7 @@ export default function SubmittedNotebooks() {
 
               <div>
                 <label className="block text-[#1E293B] font-display text-xs uppercase tracking-wider mb-1.5 font-extrabold">
-                  Google NotebookLM URL *
+                  Google <GeminiNotebookName /> URL *
                 </label>
                 <input
                   type="text"
@@ -232,7 +244,7 @@ export default function SubmittedNotebooks() {
                   required
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="e.g. Notebook LM (Blood) - ABO & Rh Transfusion"
+                  placeholder="e.g. Gemini Notebook LM (Blood) - ABO & Rh Transfusion"
                   className="w-full px-3 py-2.5 border-2 border-[#1E293B] rounded-xl bg-[#FFFDF5] text-[#1E293B] outline-none focus:ring-2 focus:ring-[#8B5CF6] text-sm font-medium"
                 />
               </div>
@@ -377,7 +389,7 @@ export default function SubmittedNotebooks() {
                   </div>
 
                   <h4 className="text-lg font-display font-extrabold text-[#1E293B] mb-2 leading-snug">
-                    {nb.title}
+                    {renderNotebookTitle(nb.title)}
                   </h4>
 
                   <p className="text-xs text-[#64748B] mb-4 flex items-center gap-1 font-bold">
@@ -402,7 +414,7 @@ export default function SubmittedNotebooks() {
                   className="w-full candy-button inline-flex items-center justify-center gap-2 text-xs py-3.5 px-4 uppercase cursor-pointer shrink-0"
                 >
                   <ExternalLink className="w-4 h-4 text-white stroke-[3px]" />
-                  <span>Launch NotebookLM</span>
+                  <span>Launch <GeminiNotebookName /></span>
                 </a>
               </div>
             );

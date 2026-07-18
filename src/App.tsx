@@ -13,6 +13,7 @@ import Diagnostics from './components/Diagnostics';
 import SyllabusMap from './components/SyllabusMap';
 import RosterRelauncher from './components/RosterRelauncher';
 import LearningContractModal from './components/LearningContractModal';
+import GeminiNotebookName from './components/GeminiNotebookName';
 
 // Icons
 import { GraduationCap, BookOpen, Layers, BarChart3, Database, RefreshCw, Sparkles, UserCheck, Award, Smile } from 'lucide-react';
@@ -251,8 +252,8 @@ export default function App() {
         <nav className="flex flex-wrap gap-3 border-b-4 border-[#1E293B] pb-4 mb-8 text-sm">
           {[
             { id: 'matrix', label: 'Roster & Outcomes Matrix', icon: <Layers className="w-4 h-4" /> },
-            { id: 'notebooks', label: 'NotebookLM Repository', icon: <Database className="w-4 h-4" /> },
-            { id: 'guide', label: 'NotebookLM Guide', icon: <BookOpen className="w-4 h-4" /> },
+            { id: 'notebooks', label: <><GeminiNotebookName /> Repository</>, icon: <Database className="w-4 h-4" /> },
+            { id: 'guide', label: <><GeminiNotebookName /> Guide</>, icon: <BookOpen className="w-4 h-4" /> },
             { id: 'stats', label: 'Distribution & Stats', icon: <BarChart3 className="w-4 h-4" /> },
             { id: 'map', label: 'Syllabus Chapters', icon: <GraduationCap className="w-4 h-4" /> },
             { id: 'reloader', label: 'Core Roster Relauncher', icon: <RefreshCw className="w-4 h-4" /> }

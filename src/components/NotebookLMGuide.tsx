@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Student } from '../types';
 import { Sparkles, Copy, CheckCircle, Info, GraduationCap, ArrowRight, Zap, RefreshCw } from 'lucide-react';
+import GeminiNotebookName from './GeminiNotebookName';
 
 interface NotebookLMGuideProps {
   students: Student[];
@@ -43,7 +44,7 @@ export default function NotebookLMGuide({ students, selectedStudentIdx }: Notebo
         {/* Step Guide Header */}
         <div className="bg-[#8B5CF6] text-white rounded-2xl p-6 text-center border-4 border-[#1E293B] shadow-[4px_4px_0px_0px_#1E293B] relative overflow-hidden rotate-[-0.5deg]">
           <h2 className="text-xl sm:text-2xl font-display font-black tracking-wide uppercase flex items-center justify-center gap-2">
-            <span>NotebookLM Creator Guide</span>
+            <span><GeminiNotebookName /> Creator Guide</span>
           </h2>
           <p className="text-xs text-[#FBBF24] uppercase tracking-widest font-extrabold mt-1">
             Turn Learning Outcomes into Interactive Assets
@@ -53,7 +54,8 @@ export default function NotebookLMGuide({ students, selectedStudentIdx }: Notebo
         {/* Intro speech bubble */}
         <div className="bg-[#F1F5F9] border-2 border-[#1E293B] p-4 rounded-2xl relative speech-bubble">
           <p className="text-[#1E293B] text-sm leading-relaxed font-semibold italic">
-            "Hello everyone! Ready to build your own <strong className="text-[#8B5CF6]">NotebookLM tools</strong>? Follow this roadmap to create and submit your project successfully. Let's make learning dynamic! 🎧"
+            &quot;Hello everyone! Ready to build your own{' '}
+            <strong className="text-[#8B5CF6]"><GeminiNotebookName /> tools</strong>? Follow this roadmap to create and submit your project successfully. Let's make learning dynamic! 🎧&quot;
           </p>
         </div>
 
@@ -68,7 +70,7 @@ export default function NotebookLMGuide({ students, selectedStudentIdx }: Notebo
               <strong className="text-[#8B5CF6] font-display text-[10px] uppercase tracking-wide">Find Your LO:</strong> Locate your assigned HAPS Learning Outcome for the active exam category using the Planner Deck.
             </li>
             <li>
-              <strong className="text-[#8B5CF6] font-display text-[10px] uppercase tracking-wide">Rename Workspace:</strong> Create a new NotebookLM and rename it with your specific LO code. Just copy and paste it!
+              <strong className="text-[#8B5CF6] font-display text-[10px] uppercase tracking-wide">Rename Workspace:</strong> Create a new <GeminiNotebookName /> and rename it with your specific LO code. Just copy and paste it!
             </li>
           </ul>
         </div>
@@ -95,7 +97,7 @@ export default function NotebookLMGuide({ students, selectedStudentIdx }: Notebo
               Steps 5 &amp; 6: Customize AI Prompts ✍️
             </p>
             <p className="text-xs text-[#64748B] leading-relaxed font-semibold">
-              Copy and paste this base template into NotebookLM for each tool (presentation, flashcards, video, audio, infographic):
+              Copy and paste this base template into <GeminiNotebookName /> for each tool (presentation, flashcards, video, audio, infographic):
             </p>
             <div className="bg-white border-2 border-[#1E293B] p-4 rounded-xl text-xs text-[#8B5CF6] font-mono italic font-bold">
               "Using the selected sources, generate a(n) [presentation, flashcards, video, audio, infographic] of this specific learning outcome: [---paste your LO here---]"
@@ -144,7 +146,7 @@ export default function NotebookLMGuide({ students, selectedStudentIdx }: Notebo
           <span>Script Generator</span>
         </h3>
         <p className="text-xs text-[#64748B] font-bold leading-relaxed">
-          Select a scholar and milestone. The system automatically fetches their deterministic learning outcome and constructs the exact instruction script for Google NotebookLM.
+          Select a scholar and milestone. The system automatically fetches their deterministic learning outcome and constructs the exact instruction script for Google <GeminiNotebookName />.
         </p>
 
         {activeStudent ? (
@@ -183,7 +185,7 @@ export default function NotebookLMGuide({ students, selectedStudentIdx }: Notebo
 
             {/* Deliverable format */}
             <div className="flex flex-col gap-1.5 text-xs font-bold">
-              <label className="text-[10px] font-display font-black text-[#8B5CF6] uppercase tracking-wider">NotebookLM Deliverable Format:</label>
+              <label className="text-[10px] font-display font-black text-[#8B5CF6] uppercase tracking-wider"><GeminiNotebookName /> Deliverable Format:</label>
               <select
                 value={format}
                 onChange={(e) => setFormat(e.target.value)}

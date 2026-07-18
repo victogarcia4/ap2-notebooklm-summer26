@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, ArrowDown, Activity, Sliders, Zap, Circle, Award, BookOpen, Video } from 'lucide-react';
+import GeminiNotebookName from './GeminiNotebookName';
 
 type PatternType = 'dots' | 'grid' | 'confetti' | 'blobs';
 
@@ -129,7 +130,7 @@ export default function Hero() {
           </h1>
 
           <p className="font-sans text-sm sm:text-base text-[#1E293B] leading-relaxed max-w-2xl font-medium">
-            Accelerate your A&amp;P II concepts with mathematical precision. Convert official HAPS standardized learning outcomes into beautiful multimedia deliverables using customized Google Notebook LM triggers.
+            Accelerate your A&amp;P II concepts with mathematical precision. Convert official HAPS standardized learning outcomes into beautiful multimedia deliverables using customized Google <GeminiNotebookName /> triggers.
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-2">

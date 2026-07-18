@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Copy, Check, ExternalLink, Lock, Video, MonitorPlay } from 'lucide-react';
+import GeminiNotebookName from './GeminiNotebookName';
 
 export default function CaseStudiesSection() {
   const [copied, setCopied] = useState(false);
@@ -79,7 +80,7 @@ export default function CaseStudiesSection() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#34D399] border border-[#1E293B]" />
-                    <span>Copy custom instructions for Google NotebookLM</span>
+                    <span>Copy custom instructions for Google <GeminiNotebookName /></span>
                   </li>
                 </ul>
               </div>
