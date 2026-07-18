@@ -2,6 +2,7 @@ import { Student } from '../types';
 
 export const defaultStudents: Student[] = [
   { id: "INSTRUCTOR", name: "Garcia M, Victor", gradeBasis: "Graded", units: "4.00", plan: "Faculty / Course Coordinator", level: "Instructor" },
+  { id: "7311968", name: "Wilganowski, Melissa", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Freshman" },
   { id: "1125859", name: "Cantu, Crystal Michelle", gradeBasis: "Graded", units: "4.00", plan: "Associate Degree - Associate of Science (AS)", level: "Sophomore" },
   { id: "0892156", name: "Chapa, Emma S", gradeBasis: "Graded", units: "4.00", plan: "Non-Degree Seeking (Non-FA) - Non-Degree Seeking Casual", level: "Junior" },
   { id: "7605992", name: "Escobar, Cindy Katherine", gradeBasis: "Graded", units: "4.00", plan: "Non-Degree Seeking (Non-FA) - Non-Degree Seeking Casual", level: "Junior" },

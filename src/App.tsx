@@ -36,7 +36,17 @@ export default function App() {
 
     if (saved) {
       try {
-        setStudents(JSON.parse(saved));
+        const savedRoster = JSON.parse(saved) as Student[];
+        const melissa = defaultStudents.find(student => student.id === "7311968");
+
+        if (melissa && !savedRoster.some(student => student.id === melissa.id)) {
+          const instructorIndex = savedRoster.findIndex(student => student.id === "INSTRUCTOR");
+          savedRoster.splice(instructorIndex + 1, 0, melissa);
+        }
+
+        const updatedRoster = runAllocation(savedRoster);
+        setStudents(updatedRoster);
+        localStorage.setItem('biol2402_students', JSON.stringify(updatedRoster));
       } catch (e) {
         initDefaultRoster("balanced");
       }
