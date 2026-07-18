@@ -6,7 +6,6 @@ type PatternType = 'dots' | 'grid' | 'confetti' | 'blobs';
 export default function Hero() {
   const [activePattern, setActivePattern] = useState<PatternType>('dots');
   const [activeSticker, setActiveSticker] = useState<number>(0);
-  const [avatarError, setAvatarError] = useState(false);
 
   const scrollToAbout = () => {
     const section = document.getElementById('about-section');
@@ -183,18 +182,11 @@ export default function Hero() {
             
             {/* Sticker 1: Dr. Garcia Profile Sticker */}
             <div className="absolute top-2 left-2 w-44 bg-white border-4 border-[#1E293B] p-4 rounded-2xl rotate-[-4deg] shadow-[4px_4px_0px_0px_#1E293B] hover:rotate-0 transition-transform duration-300 flex flex-col items-center text-center">
-              {!avatarError ? (
-                <img
-                  src="/VHGM traje azul.png"
-                  onError={() => setAvatarError(true)}
-                  alt="Dr. Victor Garcia M."
-                  className="w-14 h-14 rounded-full object-cover border-2 border-[#1E293B] shadow-[2px_2px_0px_0px_#1E293B] mb-2 hover:scale-105 transition-transform shrink-0"
-                />
-              ) : (
-                <div className="w-14 h-14 rounded-full bg-[#34D399] border-2 border-[#1E293B] flex items-center justify-center text-lg font-bold mb-2">
-                  👨‍⚕️
-                </div>
-              )}
+              <img
+                src="/VHGM traje azul.png"
+                alt="Dr. Victor Garcia M."
+                className="w-14 h-14 rounded-full object-cover border-2 border-[#1E293B] shadow-[2px_2px_0px_0px_#1E293B] mb-2 hover:scale-105 transition-transform shrink-0"
+              />
               <p className="font-display font-extrabold text-xs text-[#1E293B]">Dr. Victor Garcia M.</p>
               <p className="text-[10px] text-[#64748B] font-bold font-mono">Nursing &amp; Bio Faculty</p>
             </div>

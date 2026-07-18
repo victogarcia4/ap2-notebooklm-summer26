@@ -24,7 +24,6 @@ export default function App() {
   const [selectedStudentIdx, setSelectedStudentIdx] = useState(0);
   const [isContractOpen, setIsContractOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
-  const [avatarError, setAvatarError] = useState(false);
 
   // Initialize students and randomize assignments on startup
   useEffect(() => {
@@ -407,18 +406,11 @@ export default function App() {
         <div className="flex flex-col md:flex-row items-center gap-6 text-left bg-white border-4 border-[#1E293B] p-6 rounded-2xl max-w-2xl w-full shadow-[6px_6px_0px_0px_#1E293B] hover:shadow-[8px_8px_0px_0px_#1E293B] hover:translate-y-[-1px] transition-all relative">
           
           {/* Avatar frame */}
-          {!avatarError ? (
-            <img
-              src="/VHGM traje azul.png"
-              onError={() => setAvatarError(true)}
-              alt="Dr. Victor Garcia M."
-              className="w-24 h-24 rounded-2xl object-cover border-4 border-[#1E293B] shadow-[3px_3px_0px_0px_#1E293B] shrink-0 hover:rotate-3 transition-transform duration-300"
-            />
-          ) : (
-            <div className="w-24 h-24 rounded-2xl bg-[#FBBF24] text-[#1E293B] font-display font-black text-2xl flex items-center justify-center border-4 border-[#1E293B] shadow-[3px_3px_0px_0px_#1E293B] shrink-0">
-              VGM
-            </div>
-          )}
+          <img
+            src="/VHGM traje azul.png"
+            alt="Dr. Victor Garcia M."
+            className="w-24 h-24 rounded-2xl object-cover border-4 border-[#1E293B] shadow-[3px_3px_0px_0px_#1E293B] shrink-0 hover:rotate-3 transition-transform duration-300"
+          />
 
           <div>
             <span className="bg-[#34D399] text-[#1E293B] text-[10px] font-display font-black uppercase tracking-wider px-2.5 py-0.5 border-2 border-[#1E293B] rounded-full mb-1.5 inline-block">
