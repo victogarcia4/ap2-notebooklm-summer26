@@ -5,7 +5,6 @@ import { hapsOutcomes } from './data/outcomes';
 
 // Subcomponents
 import Hero from './components/Hero';
-import AboutSection from './components/AboutSection';
 import CaseStudiesSection from './components/CaseStudiesSection';
 import RosterMatrix from './components/RosterMatrix';
 import SubmittedNotebooks from './components/SubmittedNotebooks';
@@ -25,7 +24,6 @@ export default function App() {
   const [selectedStudentIdx, setSelectedStudentIdx] = useState(0);
   const [isContractOpen, setIsContractOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
-  const [avatarSrc, setAvatarSrc] = useState("/VHGM traje azul.png");
   const [avatarError, setAvatarError] = useState(false);
 
   // Initialize students and randomize assignments on startup
@@ -192,9 +190,6 @@ export default function App() {
 
       {/* Hero Section */}
       <Hero />
-
-      {/* About Section */}
-      <AboutSection />
 
       {/* Case Studies & Video Section */}
       <CaseStudiesSection />
@@ -414,16 +409,9 @@ export default function App() {
           {/* Avatar frame */}
           {!avatarError ? (
             <img
-              src={avatarSrc}
-              onError={() => {
-                if (avatarSrc === "/VHGM traje azul.png") {
-                  setAvatarSrc("https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&h=300&q=80");
-                } else {
-                  setAvatarError(true);
-                }
-              }}
-              alt="Dr. Victor Garcia Martinez"
-              referrerPolicy="no-referrer"
+              src="/VHGM traje azul.png"
+              onError={() => setAvatarError(true)}
+              alt="Dr. Victor Garcia M."
               className="w-24 h-24 rounded-2xl object-cover border-4 border-[#1E293B] shadow-[3px_3px_0px_0px_#1E293B] shrink-0 hover:rotate-3 transition-transform duration-300"
             />
           ) : (
@@ -437,7 +425,7 @@ export default function App() {
               Course Director
             </span>
             <h4 className="font-display text-xl font-black text-[#1E293B] leading-none">
-              Dr. Victor Garcia Martinez, MSN, FNP-C, RN
+              Dr. Victor Garcia M.
             </h4>
             <p className="text-[#64748B] text-xs mt-1.5 font-bold leading-normal">
               Nursing &amp; Biology Faculty &bull; Lone Star College System

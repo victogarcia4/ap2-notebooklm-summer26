@@ -6,7 +6,6 @@ type PatternType = 'dots' | 'grid' | 'confetti' | 'blobs';
 export default function Hero() {
   const [activePattern, setActivePattern] = useState<PatternType>('dots');
   const [activeSticker, setActiveSticker] = useState<number>(0);
-  const [avatarSrc, setAvatarSrc] = useState("/VHGM traje azul.png");
   const [avatarError, setAvatarError] = useState(false);
 
   const scrollToAbout = () => {
@@ -186,16 +185,9 @@ export default function Hero() {
             <div className="absolute top-2 left-2 w-44 bg-white border-4 border-[#1E293B] p-4 rounded-2xl rotate-[-4deg] shadow-[4px_4px_0px_0px_#1E293B] hover:rotate-0 transition-transform duration-300 flex flex-col items-center text-center">
               {!avatarError ? (
                 <img
-                  src={avatarSrc}
-                  onError={() => {
-                    if (avatarSrc === "/VHGM traje azul.png") {
-                      setAvatarSrc("https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&h=300&q=80");
-                    } else {
-                      setAvatarError(true);
-                    }
-                  }}
-                  alt="Dr. Victor Garcia Martinez"
-                  referrerPolicy="no-referrer"
+                  src="/VHGM traje azul.png"
+                  onError={() => setAvatarError(true)}
+                  alt="Dr. Victor Garcia M."
                   className="w-14 h-14 rounded-full object-cover border-2 border-[#1E293B] shadow-[2px_2px_0px_0px_#1E293B] mb-2 hover:scale-105 transition-transform shrink-0"
                 />
               ) : (
@@ -203,7 +195,7 @@ export default function Hero() {
                   👨‍⚕️
                 </div>
               )}
-              <p className="font-display font-extrabold text-xs text-[#1E293B]">Dr. Garcia Martinez</p>
+              <p className="font-display font-extrabold text-xs text-[#1E293B]">Dr. Victor Garcia M.</p>
               <p className="text-[10px] text-[#64748B] font-bold font-mono">Nursing &amp; Bio Faculty</p>
             </div>
 
