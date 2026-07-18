@@ -52,7 +52,7 @@ export default function CaseStudiesSection() {
               <div className="space-y-4">
                 <div className="aspect-video w-full rounded-xl overflow-hidden border-4 border-[#1E293B] shadow-[4px_4px_0px_0px_#1E293B] bg-slate-900 relative">
                   <iframe
-                    src="https://docs.google.com/videos/d/1DzxOGAnVKs2LiPgcjIpST_XAeJq0QGyuehsYX1Pu2Tw/preview"
+                    src="https://docs.google.com/videos/d/1DzxOGAnVKs2LiPgcjIpST_XAeJq0QGyuehsYX1Pu2Tw/play?usp=sharing"
                     className="absolute inset-0 w-full h-full"
                     allow="autoplay; fullscreen"
                     allowFullScreen
