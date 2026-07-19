@@ -3,21 +3,11 @@ import { SubmittedNotebook } from '../types';
 import { BookOpen, ExternalLink, Plus, Search, User, Award, CheckCircle, Info, Sparkles, X, Lock, Unlock, Trash2, Loader2, AlertTriangle, Shield } from 'lucide-react';
 import GeminiNotebookName from './GeminiNotebookName';
 
+import localNotebooks from '@/data/notebooks.json';
+
 // ─── Constants ───────────────────────────────────────────────────────────────
 
-const FALLBACK_NOTEBOOKS: SubmittedNotebook[] = [
-  {
-    id: "seed-blood-compatible",
-    title: "Notebook LM (Blood) - ABO & Rh Transfusion Compatibility",
-    url: "https://notebooklm.google.com/notebook/d5dee6fd-7c9a-4c53-9701-091da2b2eddb",
-    author: "Dr. Victor Garcia Martinez",
-    role: "instructor",
-    examId: "exam1",
-    topic: "Blood Transfusion & ABO/Rh Compatibility",
-    description: "Predict which blood types are compatible and what happens when the incorrect ABO or Rh blood type is transfused.",
-    createdAt: "2026-07-12"
-  }
-];
+const FALLBACK_NOTEBOOKS: SubmittedNotebook[] = localNotebooks as SubmittedNotebook[];
 
 const EXAM_SECTIONS: Array<{
   id: SubmittedNotebook['examId'];
