@@ -20,5 +20,16 @@
     "topic": "Blood Transfusion & ABO/Rh Compatibility",
     "description": "Predict which blood types are compatible and what happens when the incorrect ABO or Rh blood type is transfused.",
     "createdAt": "2026-07-12"
+  },
+  {
+    "id": "notebook-1784423198061",
+    "title": "Describe location, histology, zones, and physiological functions of cortical/medullary adrenal hormones",
+    "url": "https://notebooklm.google.com/notebook/ecdf8f23-7016-4d06-9d82-17b7eb56094f",
+    "author": "Karen Ramirez",
+    "role": "student",
+    "examId": "exam1",
+    "topic": "Endocrine System: histology adrenal gland",
+    "description": "Describe location, histology, zones, and physiological functions of cortical/medullary adrenal hormones",
+    "createdAt": "2026-07-19"
   }
 ]
