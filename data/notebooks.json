@@ -42,5 +42,16 @@
     "topic": "Blood: hemostasis steps",
     "description": "Detail the steps of hemostasis: vascular spasm, platelet plug, and coagulation cascades.",
     "createdAt": "2026-07-19"
+  },
+  {
+    "id": "notebook-1784424003475",
+    "title": "Contrast structures, classes (IgG, IgM, IgA, IgE, IgD) and neutralization mechanisms of antibodies",
+    "url": "https://notebooklm.google.com/notebook/432cea54-9141-449a-9d49-cc8da0f7e605",
+    "author": "Karen Ramirez",
+    "role": "student",
+    "examId": "exam2",
+    "topic": "Immune/Lymphatic system: Immunoglobulins",
+    "description": "Contrast structures, classes (IgG, IgM, IgA, IgE, IgD) and neutralization mechanisms of antibodies",
+    "createdAt": "2026-07-19"
   }
 ]
