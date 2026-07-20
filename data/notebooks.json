@@ -174,5 +174,16 @@
     "topic": "Respiratory: respiratory membrane structure",
     "description": "Examine microscopic anatomy, cellular composition and properties of the respiratory membrane",
     "createdAt": "2026-07-20"
+  },
+  {
+    "id": "notebook-1784527196272",
+    "title": "Explain the accessory biliary pipeline: liver lobule flow, gallbladder storage, and pancreatic enzymes.",
+    "url": "https://notebooklm.google.com/notebook/df48a924-623e-4af6-b44a-d929e71fce6d?authuser=1",
+    "author": "Taylor Moran",
+    "role": "student",
+    "examId": "exam3",
+    "topic": "Digestive system: biliary pipeline",
+    "description": "Explain the accessory biliary pipeline: liver lobule flow, gallbladder storage, and pancreatic enzymes.",
+    "createdAt": "2026-07-20"
   }
 ]
