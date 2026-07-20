@@ -163,5 +163,16 @@
     "topic": "Immune/Lymphatic System: Defense mechanisms",
     "description": "Describe mechanisms of phagocytosis, NK cell surveillance, fever induction, and chemical inflammation.",
     "createdAt": "2026-07-19"
+  },
+  {
+    "id": "notebook-1784526952821",
+    "title": "Examine microscopic anatomy, cellular composition and properties of the respiratory membrane",
+    "url": "https://notebooklm.google.com/notebook/cc738684-9a0a-498f-9776-167c04eead7d",
+    "author": "Yetzi Roque",
+    "role": "student",
+    "examId": "exam2",
+    "topic": "Respiratory: respiratory membrane structure",
+    "description": "Examine microscopic anatomy, cellular composition and properties of the respiratory membrane",
+    "createdAt": "2026-07-20"
   }
 ]
