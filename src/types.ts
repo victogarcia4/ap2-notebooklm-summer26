@@ -36,5 +36,18 @@ export interface SubmittedNotebook {
   createdAt: string;
 }
 
+export interface SubmittedGame {
+  id: string;
+  title: string;
+  url: string;
+  author: string;
+  role: 'student' | 'instructor';
+  examId: 'exam1' | 'exam2' | 'exam3' | 'exam4' | 'exam5';
+  topic: string;
+  description: string;
+  createdAt: string;
+}
+
 export type AcademicSession = 'su26' | 'fa26' | 'sp27';
 export type DistributionPolicy = 'balanced' | 'pure';
+

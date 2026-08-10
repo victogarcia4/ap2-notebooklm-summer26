@@ -8,20 +8,19 @@ import Hero from './components/Hero';
 import CaseStudiesSection from './components/CaseStudiesSection';
 import RosterMatrix from './components/RosterMatrix';
 import SubmittedNotebooks from './components/SubmittedNotebooks';
+import AIGameRepository from './components/AIGameRepository';
 import NotebookLMGuide from './components/NotebookLMGuide';
-import Diagnostics from './components/Diagnostics';
-import SyllabusMap from './components/SyllabusMap';
-import RosterRelauncher from './components/RosterRelauncher';
 import LearningContractModal from './components/LearningContractModal';
 import GeminiNotebookName from './components/GeminiNotebookName';
 
 // Icons
-import { GraduationCap, BookOpen, Layers, BarChart3, Database, RefreshCw, Sparkles, UserCheck, Award, Smile } from 'lucide-react';
+import { GraduationCap, BookOpen, Layers, Gamepad2, Database, Sparkles, Smile } from 'lucide-react';
 
 export default function App() {
   const [students, setStudents] = useState<Student[]>([]);
   const [session, setSession] = useState<AcademicSession>("su26");
-  const [activeTab, setActiveTab] = useState<'matrix' | 'notebooks' | 'guide' | 'stats' | 'map' | 'reloader'>("matrix");
+  const [activeTab, setActiveTab] = useState<'matrix' | 'notebooks' | 'games' | 'guide'>("matrix");
+
   const [selectedStudentIdx, setSelectedStudentIdx] = useState(0);
   const [isContractOpen, setIsContractOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
@@ -253,10 +252,8 @@ export default function App() {
           {[
             { id: 'matrix', label: 'Roster & Outcomes Matrix', icon: <Layers className="w-4 h-4" /> },
             { id: 'notebooks', label: <><GeminiNotebookName /> Repository</>, icon: <Database className="w-4 h-4" /> },
+            { id: 'games', label: 'AI Game Repository', icon: <Gamepad2 className="w-4 h-4" /> },
             { id: 'guide', label: <><GeminiNotebookName /> Guide</>, icon: <BookOpen className="w-4 h-4" /> },
-            { id: 'stats', label: 'Distribution & Stats', icon: <BarChart3 className="w-4 h-4" /> },
-            { id: 'map', label: 'Syllabus Chapters', icon: <GraduationCap className="w-4 h-4" /> },
-            { id: 'reloader', label: 'Core Roster Relauncher', icon: <RefreshCw className="w-4 h-4" /> }
           ].map(tab => {
             const isActive = activeTab === tab.id;
             return (
@@ -296,25 +293,14 @@ export default function App() {
             <SubmittedNotebooks />
           )}
 
+          {activeTab === 'games' && (
+            <AIGameRepository />
+          )}
+
           {activeTab === 'guide' && (
             <NotebookLMGuide
               students={students}
               selectedStudentIdx={selectedStudentIdx}
-            />
-          )}
-
-          {activeTab === 'stats' && (
-            <Diagnostics students={students} />
-          )}
-
-          {activeTab === 'map' && (
-            <SyllabusMap />
-          )}
-
-          {activeTab === 'reloader' && (
-            <RosterRelauncher
-              onImportRoster={handleImportRoster}
-              onResetDefault={handleResetDefault}
             />
           )}
         </div>
