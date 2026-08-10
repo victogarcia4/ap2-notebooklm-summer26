@@ -48,7 +48,7 @@ export default function AIGameRepository() {
   const [url, setUrl] = useState('');
   const [author, setAuthor] = useState('');
   const [role, setRole] = useState<'student' | 'instructor'>('student');
-  const [examId, setExamId] = useState<'exam1' | 'exam2' | 'exam3' | 'exam4' | 'exam5'>('exam5');
+  const [examId, setExamId] = useState<'exam1' | 'exam2' | 'exam3' | 'exam4' | 'exam5'>('exam3');
   const [topic, setTopic] = useState('');
   const [description, setDescription] = useState('');
   const [isFormOpen, setIsFormOpen] = useState(false);
