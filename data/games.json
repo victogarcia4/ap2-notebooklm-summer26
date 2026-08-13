@@ -11,6 +11,17 @@
     "createdAt": "2026-08-12"
   },
   {
+    "id": "game-1786634985151",
+    "title": "CirculaQuest",
+    "url": "https://ai.studio/apps/a51b32fa-ca42-4f19-8bd4-25b738827ab5?fullscreenApplet=true",
+    "author": "Jason Tran",
+    "role": "student",
+    "examId": "exam3",
+    "topic": "Cardiovascular System",
+    "description": "An interactive playable game and instructional design tool for Chapter 15 Fetal vs Adult Circulation, built using ADDIE, Gagne's 9 Events, and POUR accessibility guidelines",
+    "createdAt": "2026-08-13"
+  },
+  {
     "id": "game-yetzi-roque-metabolab",
     "title": "Metabolab Weight & Gender Metabolism Game",
     "url": "https://metabolab-weight-gender-metabolism-game.ai.studio",
