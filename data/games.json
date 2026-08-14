@@ -22,6 +22,17 @@
     "createdAt": "2026-08-13"
   },
   {
+    "id": "game-1786719398515",
+    "title": "RenalFlow",
+    "url": "https://aistudio.google.com/apps/e297aad5-93ce-43a5-b626-9dfee55671a0?showAssistant=true&showPreview=true&fullscreenApplet=true",
+    "author": "Taylor Moran",
+    "role": "student",
+    "examId": "exam3",
+    "topic": "Urinary System",
+    "description": "Complete instructional design portfolio aligning HAPS renal physiology competencies with Self-Determination Theory (Autonomy, Competence, Relatedness) and Gagne's 9 Events of Instruction",
+    "createdAt": "2026-08-14"
+  },
+  {
     "id": "game-yetzi-roque-metabolab",
     "title": "Metabolab Weight & Gender Metabolism Game",
     "url": "https://metabolab-weight-gender-metabolism-game.ai.studio",
