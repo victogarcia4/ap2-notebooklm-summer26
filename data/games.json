@@ -11,6 +11,17 @@
     "createdAt": "2026-08-12"
   },
   {
+    "id": "game-1786838784855",
+    "title": "MetaboloPulse",
+    "url": "https://anatomy-physiology-bmi-metabolism-master.ai.studio/",
+    "author": "Crystal Cantu",
+    "role": "student",
+    "examId": "exam3",
+    "topic": "Nutrition and Metabolism",
+    "description": "MetaboloPulse: nutrition and metabolism game for BMI classifications (normal, underweight, overweight, obesity). Include calculations, classification decisions, or deficiency/excess scenarios with clear feedback.",
+    "createdAt": "2026-08-16"
+  },
+  {
     "id": "game-1786634985151",
     "title": "CirculaQuest",
     "url": "https://ai.studio/apps/a51b32fa-ca42-4f19-8bd4-25b738827ab5?fullscreenApplet=true",
