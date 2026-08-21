@@ -108,5 +108,16 @@
     "topic": "Metabolism & Energy Expenditure",
     "description": "Interactive AI simulation game built by Yetzi Roque exploring basal metabolic rate, gender differences in metabolism, weight regulation, and hormonal dynamics.",
     "createdAt": "2026-08-10"
+  },
+  {
+    "id": "game-1787309238289",
+    "title": "Contraceptive Physiology: Mastery Game & Instructional Suite",
+    "url": "https://aistudio.google.com/apps/98d84a86-938f-4086-a284-0b9c3965755b?showAssistant=true&showPreview=true&fullscreenApplet=true",
+    "author": "Kyla Greene",
+    "role": "student",
+    "examId": "exam5",
+    "topic": "Pregnancy, Embryology, Fetal Development",
+    "description": "Contraceptive Physiology: Mastery Game & Instructional Suite to Explain the anatomical sites of action, physiological mechanisms, typical vs. perfect use effectiveness, and clinical contraindications of various contraceptive methods",
+    "createdAt": "2026-08-21"
   }
 ]
